@@ -8,14 +8,11 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/API/V1/siblings', {
-      mode: 'cors',
-        credentials: 'include'
-    })
+    fetch('http://localhost:3000/API/V1/siblings')
       .then(response => response.json())
-      .then(siblings => this.setState({ siblings }))
+      .then(siblings => console.log(siblings))
     .catch(error => console.log('Authorization failed : ' + error.message));
-    // .then(siblings => console.log(siblings))
+    // .then(siblings => this.setState({ siblings }))
       // .then(res => res.text())          // convert to plain text
       // .then(text => console.log(text))  // then log it out
   }
