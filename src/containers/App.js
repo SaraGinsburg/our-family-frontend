@@ -8,7 +8,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/API/V1/siblings')
+    fetch('http://localhost:3000/api/v1/siblings')
       .then(response => response.json())
       .then(siblings => console.log(siblings))
     .catch(error => console.log('Authorization failed : ' + error.message));
