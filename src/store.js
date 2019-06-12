@@ -1,13 +1,19 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
-import siblingsReducer from './reducers/siblings.js'
 import thunk from 'redux-thunk'
 
+import siblingsReducer from './reducers/siblings'
+// import siblingFormData from './reduces/siblingFormData'
+
 const reducer = combineReducers({
-    sibling: siblingsReducer
-  })
+    siblings: siblingsReducer,
+    // siblingFormData
+  });
 
-  const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE_ || compose;
 
-  const store = createStore(reducer, composeEnhancer(applyMiddleware(thunk)))
+const store = createStore(
+  reducer,
+  composeEnhancer(applyMiddleware(thunk))
+)
 
-  export default store
+export default store

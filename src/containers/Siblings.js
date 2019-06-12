@@ -1,3 +1,4 @@
+// render the children/siblings
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 

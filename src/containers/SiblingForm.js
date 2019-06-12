@@ -60,13 +60,14 @@ class SiblingForm extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    siblingData: state.siblingData
-  }
-}
+// const mapStateToProps = state => {
+//   return {
+//     siblingData: state.siblingData
+//   }
+// }
 
-export default connect(mapStateToProps)(SiblingForm)
+export default SiblingForm
+// export default connect(mapStateToProps)(SiblingForm)
 // export default connect(mapStateToProps, {
 //   updateSiblingData,
 //   createSibling
