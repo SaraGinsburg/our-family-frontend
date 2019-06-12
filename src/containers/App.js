@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import Siblings from './Siblings';
 import './App.css';
 
+const API_URL = process.env.REACT_APP_API_URL;
 class App extends React.Component {
-  state = {
-    siblings: []
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      siblings: []
+    }
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/api/v1/siblings',  {mode: 'cors'})
+    fetch(`$(API_URL)/siblings`,  {mode: 'cors'})
       .then(response => response.json())
       .then(siblings => this.setState({ siblings }))
     .catch(error => console.log('Authorization failed : ' + error.message));
@@ -18,8 +23,6 @@ class App extends React.Component {
   }
 
   render() {
-    debugger
-    console.log(this.state)
     return (
       <div className="App">
         <Siblings siblings={this.state.siblings} />

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect} from 'react-redux';
 
-import { updateSiblingFormData } from '../actions/siblingForm'
-import {createSibling } from '../actions/siblings';
+// import { updateSiblingFormData } from '../actions/siblingForm'
+// import {createSibling } from '../actions/siblings';
 
 class SiblingForm extends Component {
 
@@ -66,7 +66,8 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {
-  updateSiblingData,
-  createSibling
-})(SiblingForm)
+export default connect(mapStateToProps)(SiblingForm)
+// export default connect(mapStateToProps, {
+//   updateSiblingData,
+//   createSibling
+// })(SiblingForm)

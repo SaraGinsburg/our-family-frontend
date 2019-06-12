@@ -30,4 +30,5 @@ class Siblings extends Component {
     })
   }
 
-export default connect(mapStateToProps, { getSiblings })(Siblings)
+// export default connect(mapStateToProps, { getSiblings })(Siblings)
+export default connect(mapStateToProps)(Siblings)
