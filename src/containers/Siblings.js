@@ -3,23 +3,23 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import SiblingCard from '../components/SiblingCard'
-import SiblingForm from './SiblingForm'
+// import SiblingForm from './SiblingForm'
 // import { getSiblings } from '../actions/siblings'
 import './Siblings.css'
 
 
 class Siblings extends Component {
 
-  componentDidMount() {
-    this.props.getSiblings()
-  }
+  // componentDidMount() {
+  //   this.props.getSiblings()
+  // }
 
   render() {
     return (
       <div className="SiblingsContainer">
         <h1>Siblings</h1>
         {this.props.siblings.map(sibling => <SiblingCard key={sibling.id} sibling={sibling} />)}
-        <SiblingForm />
+
       </div>
     );
   }
