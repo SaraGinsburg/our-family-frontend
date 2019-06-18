@@ -1,20 +1,20 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 
-import siblingsReducer from './reducers/siblings'
-import currentSibling from './reducers/currentSibling'
+import usersReducer from './reducers/users'
+import currentUser from './reducers/currentUser'
 import loginForm from './reducers/loginForm'
-// import siblingFormData from './reduces/siblingFormData'
+// import userFormData from './reduces/userFormData'
 
 // displaying different syntax options on (lines 10-11)
 const reducer = combineReducers({
-    siblings: siblingsReducer,
-    currentSibling,
+    users: usersReducer,
+    currentUser,
     loginForm
-    // siblingFormData
+    // userFormData
   });
 
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE_ || compose;
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
   reducer,

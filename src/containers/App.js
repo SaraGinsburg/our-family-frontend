@@ -1,34 +1,22 @@
-import React, { Component } from 'react';
-import Siblings from './Siblings';
+import React  from 'react';
 import './App.css';
+import Login from  '../components/Login'
+import Logout from  '../components/Logout'
+import { connect } from 'react-redux'
+import { getCurrentUser } from '../actions/currentUser'
 
-const API_URL = process.env.REACT_APP_API_URL;
 
 class App extends React.Component {
 
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      siblings: []
-    }
+  componentDidMount() {
+    this.props.getCurrentUser()
   }
-
-  // componentDidMount() {
-  //   fetch(`$(API_URL)/siblings`,  {mode: 'cors'})
-  //     .then(response => response.json())
-  //     .then(siblings => this.setState({ siblings }))
-  //   .catch(error => console.log('Authorization failed : ' + error.message));
-    // .then(siblings => console.log(siblings))
-    // .then(res => res.text())          // convert to plain text
-    // .then(text => console.log(text))  // then log it out
-  // }
 
   render() {
     return (
-      "hello working on React"
+      this.props.currentUser ? <Logout /> : <Login />
       // <div className="App">
-      //   <Siblings siblings={this.state.siblings} />
+      //   <Users users={this.state.users} />
       // </div>
     );
   }

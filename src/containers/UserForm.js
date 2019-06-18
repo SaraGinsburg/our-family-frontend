@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
 import { connect} from 'react-redux';
 
-// import { updateSiblingFormData } from '../actions/siblingForm'
-// import {createSibling } from '../actions/siblings';
+// import { updateUserFormData } from '../actions/userForm'
+// import {createUser } from '../actions/users';
 
-class SiblingForm extends Component {
+class UserForm extends Component {
 
   handleOnChange = event => {
     const { name, value } = event.target;
-    const currentSiblingFormData = Object.assign({}, this.props.sibling.FormData, {
+    const currentUserFormData = Object.assign({}, this.props.user.FormData, {
       [name]: value
     })
-    this.props.updateSiblingFormData(currentSiblingFormData)
+    this.props.updateUserFormData(currentUserFormData)
   }
 
   handleOnSubmit = event => {
     event.preventDefault()
-    this.props.createSibling(this.props.siblingFormData)
+    this.props.createUser(this.props.userFormData)
   }
 
   render() {
-    const { first_name, last_name, birthdate,points_earned } = this.props.siblingFormData
+    const { first_name, last_name, birthdate,points_earned } = this.props.userFormData
     return (
       <div>
         Add a child
@@ -62,13 +62,13 @@ class SiblingForm extends Component {
 
 // const mapStateToProps = state => {
 //   return {
-//     siblingData: state.siblingData
+//     userData: state.userData
 //   }
 // }
 
-export default SiblingForm
-// export default connect(mapStateToProps)(SiblingForm)
+export default UserForm
+// export default connect(mapStateToProps)(UserForm)
 // export default connect(mapStateToProps, {
-//   updateSiblingData,
-//   createSibling
-// })(SiblingForm)
+//   updateUserData,
+//   createUser
+// })(UserForm)
