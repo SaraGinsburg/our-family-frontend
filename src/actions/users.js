@@ -1,12 +1,31 @@
-import { resetUserForm } from './userForm';
+// synchronous actions
+export const setUsers = users => {
+  return {
+    type: "SET_USERS",
+    users
+  }
+}
 
 
 // ** async actions
 export const getUsers = () => {
   return dispatch => {
-    return fetch('http://localhost:3000/api/v1/users')
-    .then(response => response.json())
-    .then(users => dispatch(setUses(users)))
-    .catch(error => console.log(error))
+    return fetch('http://localhost:3000/api/v1/users', {
+      credentials: "include",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    })
+    .then(r => r.json())
+    .then(response => {
+      if (response.error) {
+        alert(response.error)
+      } else {
+        console.log(response.data)
+        dispatch(setUsers(response.data))
+      }
+    })
+    .catch(console.log)
   }
 }

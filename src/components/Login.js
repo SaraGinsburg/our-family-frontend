@@ -11,6 +11,8 @@ const Login = ({ loginFormData, updateLoginForm, login}) => {
       ...loginFormData,
       [name]: value
     }
+    //updateLoginForm is an action creator.
+    //receives updatedFormInfo, and updates login form
     updateLoginForm(updatedFormInfo)
   }
 

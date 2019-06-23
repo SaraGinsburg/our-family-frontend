@@ -23,6 +23,12 @@
   color: #61dafb;
 }
 
+.NavBar {
+  display: flex;
+  flex-direction: row;
+  color: red;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

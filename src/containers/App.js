@@ -1,10 +1,13 @@
 import React  from 'react';
-import './App.css';
+import '../App.css';
 import { connect } from 'react-redux'
 import { getCurrentUser } from '../actions/currentUser'
-import Login from  '../components/Login'
-import Logout from  '../components/Logout'
-
+import  NavBar  from '../components/NavBar'
+import  Login  from '../components/Login'
+import Logout from '../components/Logout'
+import Users from '../components/Users'
+// import MainContainer from '../components/MainContainer'
+import { Route, BrowserRouter as Router } from 'react-router-dom'
 
 class App extends React.Component {
 
@@ -14,15 +17,18 @@ class App extends React.Component {
 
   render() {
     return (
-      this.props.currentUser ? <Logout /> : <Login />
+      <div className="App">
+        <Logout/>
+        <NavBar/>
+          <Router>
+            <Route exact path='/login' component={Login}/>
+            <Route exact path='/users' component={Users}/>
+          </Router>
+      </div>
     );
   }
 }
 
-const mapStateToProps = ({ currentUser }) => {
-  return {
-    currentUser
-  }
-}
 
-export default connect(mapStateToProps, {getCurrentUser})(App);
+
+export default connect(null, {getCurrentUser})(App);
