@@ -1,3 +1,6 @@
+import { resetLoginForm } from './loginForm'
+import { getMyMilestones } from './/myMilestones'
+
 // synchronous action creators
 export const setCurrentUser = user => {
   return {
@@ -30,6 +33,7 @@ export const clearCurrentUser = () => {
             alert(response.error)
           } else {
             dispatch(setCurrentUser(response.data))
+            dispatch(resetLoginForm())
 
           }
         })
@@ -63,6 +67,8 @@ export const clearCurrentUser = () => {
           alert(response.error)
         } else {
           dispatch(setCurrentUser(response.data))
+          dispatch(getMyMilestones())
+
         }
       })
       .catch(console.log)

@@ -38,3 +38,8 @@ review components/Login.js
       UserCards
     )
   }
+  -should I keep old migration files?
+  -how to remove the login form component once user is already logged in
+  - picture issues. some don't show.
+  - how to minimize them?
+  

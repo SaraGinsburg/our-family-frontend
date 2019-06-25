@@ -1,7 +1,9 @@
   import React from 'react'
 
-  const UserCard = ({ user }) => {
+  const UserCard = ({user}) => {
+    console.log(user)
     return (
+      !user ? "" :
       <div key={user.id} className="UserCard">
         <h3>{user.attributes.first_name} {user.attributes.last_name}</h3>
         <p> Birthdate: {user.attributes.birthdate}</p>

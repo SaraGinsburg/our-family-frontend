@@ -11,5 +11,5 @@ const Logout = ({logout}) => {
 }
 
 
-
+// because of connect, logout is passed as props
 export default connect(null, { logout } )(Logout)
