@@ -21,7 +21,7 @@ export const getMyMilestones = () => {
       if (response.error) {
         alert(response.error)
       } else {
-        console.log(response.data)
+        console.log("in getMyMilestones", response.data)
         dispatch(setMyMilestones(response.data))
       }
     })

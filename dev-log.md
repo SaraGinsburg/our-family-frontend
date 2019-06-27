@@ -21,9 +21,13 @@ add actions/reducers/state/props needed for this to happen
 
 
 ##6/23
-fix Login
-review react router
-review components/Login.js  
+-fix Login -DONE
+-review react router
+-review components/Login.js  
+
+##6/26
+-signup form
+  --> add form and corresponding redux actions
 
 
 
@@ -42,4 +46,3 @@ review components/Login.js
   -how to remove the login form component once user is already logged in
   - picture issues. some don't show.
   - how to minimize them?
-  

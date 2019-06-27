@@ -1,7 +1,7 @@
 import React from 'react'
 
 const MilestoneCard = ({milestone}) => {
-  console.log(milestone)
+  console.log("in MilestoneCard", milestone)
   return (
     !milestone ? "" :
     <div key={milestone.id} className="MilestoneCard">

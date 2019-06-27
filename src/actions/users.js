@@ -22,7 +22,7 @@ export const getUsers = () => {
       if (response.error) {
         alert(response.error)
       } else {
-        console.log(response.data)
+        console.log("in getUsers", response.data)
         dispatch(setUsers(response.data))
       }
     })
