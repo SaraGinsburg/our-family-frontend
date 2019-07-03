@@ -29,7 +29,13 @@ add actions/reducers/state/props needed for this to happen
 -signup form
   --> add form and corresponding redux actions
 
-
+##6/30
+-modify NavBar to match bootstrap NavBar
+  --> upon start should have: login/signup
+  --> if user exists, show user card, and links to milestones, kindwords and niceDeeds
+  --> each of these should allow: CRUD actions input form, display of all elements, update and delete(only administrator?)
+  in category
+  -->niceDeeds and kindWords will be pending until approved by administrator
 
 ##QUESTIONS TO TC:
   -in components/users did not allow a <div> in the return. why?

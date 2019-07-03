@@ -1,23 +1,27 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Login from './Login'
+import { NavLink } from 'react-router-dom'
 import Logout from './Logout'
 
 
-const  NavBar = ({ currentUser }) => {
+
+const  NavBar = ({currentUser, loggedIn }) => {
+
   return (
     <div className="NavBar">
-      { currentUser ? <strong>Welcome, {currentUser.attributes.first_name}</strong> : "" }
-      { currentUser ? <Logout/> : <Login/>}
-      
+      <NavLink exact activeClassName="active" to="/milestones">My Milestones | </NavLink>
+      <NavLink exact activeClassName="active" to="/milestones/new">New Milestones | </NavLink>
+      { loggedIn ? <><p id="loggedin">Logged in as {currentUser.attributes.first_name} {currentUser.attributes.last_name}</p><Logout/></> : null }
+      { loggedIn ? <><p id="loggedin">Logged in as {currentUser.attributes.name}</p><Logout/></> : null}
     </div>
   )
 }
 
+
 const mapStateToProps = ({ currentUser }) => {
   return {
-    currentUser
+    currentUser,
+    LoggedIn: !!currentUser
   }
 }
-
 export default connect(mapStateToProps)(NavBar)

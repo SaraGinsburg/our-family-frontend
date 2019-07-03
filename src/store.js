@@ -5,6 +5,7 @@ import usersReducer from './reducers/users'
 import currentUser from './reducers/currentUser'
 import loginForm from './reducers/loginForm'
 import signupForm from './reducers/signupForm'
+import newMilestoneForm from './reducers/newMilestoneForm'
 import myMilestones from './reducers/myMilestones'
 import myKindWords from './reducers/myKindWords'
 import myNiceDeeds from './reducers/myNiceDeeds'
@@ -18,7 +19,8 @@ const reducer = combineReducers({
     signupForm,
     myMilestones,
     myKindWords,
-    myNiceDeeds
+    myNiceDeeds,
+    newMilestoneForm
     // userFormData
   });
 

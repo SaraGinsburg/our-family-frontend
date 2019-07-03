@@ -6,6 +6,19 @@ export const setMyMilestones = milestones => {
   }
 }
 
+export const clearMilestones = () => {
+  return {
+    type: "CLEAR_MILESTONES"
+  }
+}
+
+export const addMilestone = milestone => {
+  return {
+    type: "ADD_MILESTONE",
+    milestone
+  }
+}
+
 // asynchronous action creators
 export const getMyMilestones = () => {
   return dispatch => {
@@ -25,6 +38,29 @@ export const getMyMilestones = () => {
         dispatch(setMyMilestones(response.data))
       }
     })
+    .catch(console.log)
+  }
+}
+
+export const createMilestone = milestone => {
+  return dispatch => {
+    const dataToBeSent = {
+      when: milestone.when,
+      what: milestone.what,
+      picture: milestone.picture,
+      heading: milestone.heading,
+      user_id: milestone.userId
+    }
+    return fetch("http://localhost:3000/api/v1/milestones", {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(dataToBeSent)
+    })
+    .then(r => r.json())
+    .then(console.log)
     .catch(console.log)
   }
 }

@@ -3,14 +3,16 @@ import '../App.css';
 import { connect } from 'react-redux'
 import { getCurrentUser } from '../actions/currentUser'
 import  NavBar  from '../components/NavBar'
+import Home from '../components/Home'
 import  Login  from '../components/Login'
-import Signup from '../components/Signup'
 import Logout from '../components/Logout'
+import Signup from '../components/Signup'
 import MyMilestones from '../components/MyMilestones'
-import Welcome from '../components/Welcome'
-import Users from '../components/Users'
+import NewMilestoneForm from '../components/NewMilestoneForm'
+// import Welcome from '../components/Welcome'
+// import Users from '../components/Users'
 import MainContainer from '../components/MainContainer'
-import { Route } from 'react-router-dom'
+import { Route, Switch, withRouter, Link } from 'react-router-dom'
 
 class App extends React.Component {
 
@@ -19,22 +21,25 @@ class App extends React.Component {
   }
 
   render() {
-    console.log("in App.js", this.props.currentUser)
+    const { loggedIn } = this.props
     return (
       <div className="App">
-        {this.props.currentUser ?   <Logout/> : <Login/> }
-        <NavBar/>
+        { loggedIn ?  <NavBar location={this.props.location}/>  : <Home/> }
+        <Switch>
+          <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
           <Route exact path='/login' component={Login}/>
-          <Route exact path='/logout' component={Logout}/>
-          <Route exact path='/my-milestones' component={MyMilestones}/>
-          <Route exact path='/signup' component={Signup}/>
+          <Route exact path='/milestones' component={MyMilestones}/>
+          <Route exact path='/milestones/new' component={NewMilestoneForm}/>
+        </Switch>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state)=> {
-  return {currentUser: state.currentUser}
+const mapStateToProps = state => {
+  return ({
+    loggedIn: !!state.currentUser
+  })
 }
 
-export default connect(mapStateToProps, {getCurrentUser})(App);
+export default withRouter(connect(mapStateToProps, {getCurrentUser})(App));
