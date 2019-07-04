@@ -37,6 +37,16 @@ add actions/reducers/state/props needed for this to happen
   in category
   -->niceDeeds and kindWords will be pending until approved by administrator
 
+##7/3
+-modify UserCard to include Card from react-bootstrap
+  --> import card from 'react-bootstrap'
+  --> replace <div> img, etc.
+-create input form for niceDeeds
+  --> create drop-down menu for the user_id, the child who did the niceDeed
+  --> add status to niceDeeds and kindWords. for this phase: default to 'approved'
+
+-look into semantic UI
+
 ##QUESTIONS TO TC:
   -in components/users did not allow a <div> in the return. why?
   const Users = props => {

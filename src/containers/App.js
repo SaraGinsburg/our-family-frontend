@@ -13,6 +13,7 @@ import NewMilestoneForm from '../components/NewMilestoneForm'
 // import Users from '../components/Users'
 import MainContainer from '../components/MainContainer'
 import { Route, Switch, withRouter, Link } from 'react-router-dom'
+import UserCard from '../components/UserCard'
 
 class App extends React.Component {
 
@@ -21,24 +22,28 @@ class App extends React.Component {
   }
 
   render() {
-    const { loggedIn } = this.props
+    // const { loggedIn } = this.props
     return (
-      <div className="App">
-        { loggedIn ?  <NavBar location={this.props.location}/>  : <Home/> }
-        <Switch>
-          <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
-          <Route exact path='/login' component={Login}/>
-          <Route exact path='/milestones' component={MyMilestones}/>
-          <Route exact path='/milestones/new' component={NewMilestoneForm}/>
-        </Switch>
-      </div>
+      // <div className="App">
+        // { //loggedIn ?  <NavBar location={this.props.location}/>  : <Home/> }
+
+          <UserCard user= {this.props.currentUser} />
+          //<//MyMilestones />
+        // <Switch>
+        //   <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
+        //   <Route exact path='/login' component={Login}/>
+        //   <Route exact path='/milestones' component={MyMilestones}/>
+        //   <Route exact path='/milestones/new' component={NewMilestoneForm}/>
+        // </Switch>
+      // </div>
     );
   }
 }
 
 const mapStateToProps = state => {
   return ({
-    loggedIn: !!state.currentUser
+    loggedIn: !!state.currentUser,
+    currentUser: state.currentUser
   })
 }
 

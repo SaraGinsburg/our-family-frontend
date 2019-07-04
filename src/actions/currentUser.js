@@ -1,6 +1,6 @@
 import { resetLoginForm } from './loginForm'
 import { resetSignupForm } from './signupForm'
-import { getMyMilestones } from './myMilestones'
+import { getMyMilestones, clearMilestones } from './myMilestones'
 
 // synchronous action creators
 export const setCurrentUser = user => {
@@ -17,7 +17,7 @@ export const clearCurrentUser = () => {
 }
 
 // asynchronous action creators
-  export const login = credentials => {
+  export const login = (credentials, history) => {
     console.log("credentials are", credentials)
     return dispatch => {
       return fetch("http://localhost:3000/api/v1/login", {
@@ -36,7 +36,7 @@ export const clearCurrentUser = () => {
             dispatch(setCurrentUser(response.data))
             dispatch(getMyMilestones())
             dispatch(resetLoginForm())
-
+            history.push('/')
           }
         })
         .catch(console.log)
@@ -44,10 +44,13 @@ export const clearCurrentUser = () => {
   }
 
 
-export const signup = credentials => {
+export const signup = (credentials, history)  => {
     console.log("credentials are", credentials)
-    const userData = {user: credentials}
+
     return dispatch => {
+      const userData = {
+        user: credentials
+      }
       return fetch("http://localhost:3000/api/v1/signup", {
         credentials: "include",
         method: "POST",
@@ -65,16 +68,17 @@ export const signup = credentials => {
             dispatch(setCurrentUser(response.data))
             dispatch(getMyMilestones())
             dispatch(resetSignupForm())
-
+            history.push('/')
           }
         })
-        .catch(r => console.log("in catch", r))
+        .catch(console.log)
     }
   }
 
-  export const logout = () => {
+  export const logout = event => {
     return dispatch => {
       dispatch(clearCurrentUser())
+      dispatch(clearMilestones())
       return fetch('http://localhost:3000/api/v1/logout', {
         credentials: "include",
         method: "DELETE"

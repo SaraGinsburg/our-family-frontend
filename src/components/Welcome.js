@@ -9,10 +9,11 @@ const Welcome = ({ currentUser }) => {
       { currentUser ?
         <strong>Welcome,
           {currentUser.attributes.first_name} {currentUser.attributes.last_name}
-        </strong> :
+        </strong>
+        <UserCard user= {currentUser} />
+        <MyMilestones />
+        :
       "" }
-      <UserCard user= {currentUser} />
-      <MyMilestones />
     </div>
   )
 }
