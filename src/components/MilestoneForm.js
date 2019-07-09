@@ -8,7 +8,7 @@ const MilestoneForm = ({ formData, history,  updateMilestoneForm,  userId, miles
   const { when, what, picture, heading } = {formData}
 
   const handleChange = event => {
-    console.log("In Handle Change")
+    console.log("In Handle Change, event.target is" , event.target)
     const { name, value } = event.target
     updateMilestoneForm(name, value)
   }

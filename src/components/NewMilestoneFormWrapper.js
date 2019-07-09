@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 const NewMilestoneFormWrapper = ({ history, createMilestone }) => {
   const handleSubmit = (event, formData, userId, history) => {
     event.preventDefault()
-    console.log("in handle submit, event is ", event)
+    console.log("in handle submit, event is ", event, "history is ", history, "formData is", formData)
     createMilestone({
       ...formData,
       userId
