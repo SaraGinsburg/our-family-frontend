@@ -8,11 +8,16 @@ import  Login  from '../components/Login'
 import Logout from '../components/Logout'
 import Signup from '../components/Signup'
 import MyMilestones from '../components/MyMilestones'
-import NewMilestoneForm from '../components/NewMilestoneForm'
+import MilestoneForm from '../components/MilestoneForm'
+import MilestoneCard from '../components/MilestoneCard'
 // import Welcome from '../components/Welcome'
 // import Users from '../components/Users'
 import MainContainer from '../components/MainContainer'
+import NewMilestoneFormWrapper from '../components/NewMilestoneFormWrapper'
+import EditMilestoneFormWrapper from '../components/EditMilestoneFormWrapper'
 import { Route, Switch, withRouter, Link } from 'react-router-dom'
+import { setFormDataForEdit } from '../actions/milestoneForm'
+
 import UserCard from '../components/UserCard'
 
 class App extends React.Component {
@@ -22,29 +27,33 @@ class App extends React.Component {
   }
 
   render() {
-    // const { loggedIn } = this.props
+    const { loggedIn, milestones, setFormDataForEdit } = this.props
     return (
-      // <div className="App">
-        // { //loggedIn ?  <NavBar location={this.props.location}/>  : <Home/> }
+      <div className="App">
+       { loggedIn ?  <NavBar location={this.props.location}/>  : <Home/> }
 
           <UserCard user= {this.props.currentUser} />
-          //<//MyMilestones />
-        // <Switch>
-        //   <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
-        //   <Route exact path='/login' component={Login}/>
-        //   <Route exact path='/milestones' component={MyMilestones}/>
-        //   <Route exact path='/milestones/new' component={NewMilestoneForm}/>
-        // </Switch>
-      // </div>
+
+        <Switch>
+          <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
+          <Route exact path='/login' component={Login}/>
+          <Route exact path='/milestones' component={MyMilestones}/>
+          <Route exact path='/milestones/new' component={NewMilestoneFormWrapper}/>
+          <Route exact path='/milestones/:id' render={props=> {
+            const milestone = milestones.find(milestone => milestone.id === props.match.params.id)
+            console.log(milestone)
+            return <MilestoneCard milestone={milestone} {...props}/>}}/>
+        </Switch>
+      </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  return ({
+  return({
     loggedIn: !!state.currentUser,
-    currentUser: state.currentUser
+    milestones: state.MyMilestones
   })
 }
 
-export default withRouter(connect(mapStateToProps, {getCurrentUser})(App));
+export default withRouter(connect(mapStateToProps, {getCurrentUser, setFormDataForEdit})(App));

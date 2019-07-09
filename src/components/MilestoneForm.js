@@ -1,29 +1,26 @@
 import React from 'react'
-import { updateNewMilestoneForm } from '../actions/newMilestoneForm'
-import { createMilestone } from '../actions/myMilestones'
+import { updateMilestoneForm } from '../actions/milestoneForm'
+
 import { connect } from 'react-redux'
 
 
-const newMilestoneForm = ({formData, history,  updateNewMilestoneForm, createMilestone, userId }) => {
+const MilestoneForm = ({formData, history,  updateMilestoneForm,  userId, handleSubmit, editMode }) => {
+  console.log(formData)
   const { when, what, picture, heading } = formData
 
   const handleChange = event => {
     console.log("In Handle Change")
     const { name, value } = event.target
-    updateNewMilestoneForm(name, value)
+    updateMilestoneForm(name, value)
   }
 
-  const handleSubmit = event => {
-    event.preventDefault()
-    console.log("In Handle Submit")
-    createMilestone({
-      ...formData,
-      userId
-    })
-  }
+
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={event => {
+      console.log("in MilestoneForm onSubmit")
+      handleSubmit(event, formData, userId, history)
+    }}>
       <input
         placeholder="heading"
         name="heading"
@@ -54,18 +51,17 @@ const newMilestoneForm = ({formData, history,  updateNewMilestoneForm, createMil
 
       <input
         type="submit"
-        value="Create Milestone"
+        value={ editMode ? "Update Milestone" : "Create Milestone" }
       />
     </form>
-  )
-}
+  )}
 
 const mapStateToProps = state => {
   const userId = state.currentUser ? state.currentUser.id : ""
   return {
-    formData: state.newMilestoneForm,
+    formData: state.MilestoneForm,
     userId
   }
 }
 
-export default connect(mapStateToProps, {updateNewMilestoneForm, createMilestone})(newMilestoneForm);
+export default connect(mapStateToProps, { updateMilestoneForm })(MilestoneForm);

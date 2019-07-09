@@ -38,7 +38,7 @@ add actions/reducers/state/props needed for this to happen
   -->niceDeeds and kindWords will be pending until approved by administrator
 
 ##7/3
--modify UserCard to include Card from react-bootstrap
+-modify UserCard to include Card from react-bootstrap      DONE
   --> import card from 'react-bootstrap'
   --> replace <div> img, etc.
 -create input form for niceDeeds
@@ -46,6 +46,15 @@ add actions/reducers/state/props needed for this to happen
   --> add status to niceDeeds and kindWords. for this phase: default to 'approved'
 
 -look into semantic UI
+
+##7/8
+- once loggedIn, allow for:
+Milestones, KindWords, niceDeeds
+in KindWords:
+  --> displaying all kindWords.
+  --> adding a record to kindWords.
+  --> del kindWords.
+
 
 ##QUESTIONS TO TC:
   -in components/users did not allow a <div> in the return. why?

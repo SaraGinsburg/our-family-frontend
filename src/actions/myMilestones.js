@@ -1,3 +1,4 @@
+import { resetMilestoneForm } from './milestoneForm'
 // synchronous action creators
 export const setMyMilestones = milestones => {
   return {
@@ -61,6 +62,46 @@ export const createMilestone = milestone => {
     })
     .then(r => r.json())
     .then(console.log)
+    .catch(console.log)
+  }
+}
+
+export const updateMilestoneSuccess = milestone => {
+  return {
+    type: "UPDATE_MILESTONE",
+    milestone
+  }
+}
+
+
+
+export const updateMilestone = (milestone, history) => {
+  return dispatch => {
+    const dataToBeSent = {
+      when: milestone.when,
+      what: milestone.what,
+      picture: milestone.picture,
+      heading: milestone.heading,
+      user_id: milestone.userId
+    }
+    return fetch("http://localhost:3000/api/v1/milestones", {
+      credentials: "include",
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(dataToBeSent)
+    })
+    .then(r => r.json())
+    .then(resp => {
+      if (resp.error) {
+        alert(resp.error)
+      } else {
+        dispatch(updateMilestoneSuccess(resp.data))
+        dispatch(resetMilestoneForm())
+        history.push(`/milestones/$(resp.data.id)`)
+      }
+    })
     .catch(console.log)
   }
 }
