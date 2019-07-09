@@ -1,12 +1,11 @@
 import React from 'react'
 import { updateMilestoneForm } from '../actions/milestoneForm'
-
 import { connect } from 'react-redux'
 
 
-const MilestoneForm = ({formData, history,  updateMilestoneForm,  userId, handleSubmit, editMode }) => {
-  console.log(formData)
-  const { when, what, picture, heading } = formData
+const MilestoneForm = ({ formData, history,  updateMilestoneForm,  userId, milestone, handleSubmit, editMode }) => {
+
+  const { when, what, picture, heading } = {formData}
 
   const handleChange = event => {
     console.log("In Handle Change")

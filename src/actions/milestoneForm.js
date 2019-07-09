@@ -1,9 +1,8 @@
 
 // sync actions
 
-export const updateMilestoneForm = (name, value) => {
-  debugger
-  const formData = { name, value }
+export const updateMilestoneForm = (when, what, picture, heading) => {
+  const formData = { when, what, picture, heading }
   return{
     type: "UPDATE_NEW_MILESTONE_FORM",
     formData

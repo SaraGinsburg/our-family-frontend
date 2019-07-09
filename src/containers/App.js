@@ -28,10 +28,9 @@ class App extends React.Component {
 
   render() {
     const { loggedIn, milestones, setFormDataForEdit } = this.props
-    return (
+      return (
       <div className="App">
        { loggedIn ?  <NavBar location={this.props.location}/>  : <Home/> }
-
           <UserCard user= {this.props.currentUser} />
 
         <Switch>
