@@ -1,11 +1,10 @@
 
 // sync actions
-
-export const updateMilestoneForm = (when, what, picture, heading) => {
-  const formData = { when, what, picture, heading }
+export const updateMilestoneForm = (name, value) => {
+  
   return{
     type: "UPDATE_NEW_MILESTONE_FORM",
-    formData
+    formData: { name, value }
   }
 }
 
@@ -18,10 +17,10 @@ export const resetMilestoneForm = () => {
 
 export const setFormDataForEdit = milestone => {
   const milestoneFormData = {
+    heading: milestone.attributes.heading,
     when: milestone.attributes.when,
     what: milestone.attributes.what,
-    picture: milestone.attributes.picture,
-    heading: milestone.attributes.heading
+    picture: milestone.attributes.picture
   }
   return {
     type: "SET_FORM_DATA_FOR_EDIT",

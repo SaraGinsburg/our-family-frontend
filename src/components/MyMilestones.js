@@ -1,15 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import MilestoneCard from './MilestoneCard'
+import { Link } from 'react-router-dom'
+
 
 const MyMilestones = props => {
   const milestoneCards = props.milestones.length > 0 ?
-    props.milestones.map(m => <MilestoneCard milestone={m} key={m.id}/>):
+    props.milestones.map(m => (<p key={m.id}><Link to={`/milestones/${m.id}`}>{m.attributes.what}</Link></p>)):
     null
 
-    return (
-      milestoneCards
-    )
+    return  milestoneCards
+
 }
 
 const mapStateToProps = state => {

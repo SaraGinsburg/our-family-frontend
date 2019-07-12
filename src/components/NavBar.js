@@ -9,8 +9,8 @@ const  NavBar = ({currentUser, loggedIn }) => {
 
   return (
     <div className="NavBar">
-      <NavLink exact activeClassName="active" to="/milestones">My Milestones | </NavLink>
-      <NavLink exact activeClassName="active" to="/milestones/new">New Milestones | </NavLink>
+      <NavLink exact activeClassName="active" to="/milestones">My Milestones  </NavLink>
+      <NavLink exact activeClassName="active" to="/milestones/new">New Milestones  </NavLink>
       { console.log(loggedIn)}
       { loggedIn ? <><p id="loggedin">Logged in as {currentUser.attributes.first_name} {currentUser.attributes.last_name}</p><Logout/></> : null }
     </div>

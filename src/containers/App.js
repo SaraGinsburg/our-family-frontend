@@ -28,9 +28,11 @@ class App extends React.Component {
 
   render() {
     const { loggedIn, milestones, setFormDataForEdit } = this.props
-      return (
+    console.log("in App.js milestones:", milestones)
+    return (
       <div className="App">
        { loggedIn ?  <NavBar location={this.props.location}/>  : <Home/> }
+
           <UserCard user= {this.props.currentUser} />
 
         <Switch>
@@ -40,8 +42,8 @@ class App extends React.Component {
           <Route exact path='/milestones/new' component={NewMilestoneFormWrapper}/>
           <Route exact path='/milestones/:id' render={props=> {
             const milestone = milestones.find(milestone => milestone.id === props.match.params.id)
-            console.log(milestone)
-            return <MilestoneCard milestone={milestone} {...props}/>}}/>
+            console.log("props in App.js :",props)
+            return <EditMilestoneFormWrapper milestone={milestone} {...props}/>}}/>
         </Switch>
       </div>
     );
@@ -51,7 +53,7 @@ class App extends React.Component {
 const mapStateToProps = state => {
   return({
     loggedIn: !!state.currentUser,
-    milestones: state.MyMilestones
+    milestones: state.myMilestones
   })
 }
 
