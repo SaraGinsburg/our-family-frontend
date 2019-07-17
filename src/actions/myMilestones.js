@@ -20,6 +20,7 @@ export const addMilestone = milestone => {
   }
 }
 
+
 export const updateMilestoneSuccess = milestone => {
   return {
     type: "UPDATE_MILESTONE",
@@ -27,6 +28,12 @@ export const updateMilestoneSuccess = milestone => {
   }
 }
 
+export const deleteMilestoneSuccess = milestoneId => {
+  return {
+    type: "DELETE_MILESTONE",
+    milestoneId
+  }
+}
 
 // asynchronous action creators
 export const getMyMilestones = () => {
@@ -52,12 +59,17 @@ export const getMyMilestones = () => {
 }
 
 export const createMilestone = (milestoneData, history) => {
-
-  console.log("milestone in the createMilestone action:" , milestoneData )
   return dispatch => {
     const dataToBeSent = {
-      milestone: milestoneData
+        heading: milestoneData.heading,
+        what: milestoneData.what,
+        when: milestoneData.when,
+        picture: milestoneData.picture,
+        user_id: milestoneData.userId
     }
+    // add to redux store
+    // clear form
+    // url change
     return fetch("http://localhost:3000/api/v1/milestones", {
       credentials: "include",
       method: "POST",
@@ -71,6 +83,7 @@ export const createMilestone = (milestoneData, history) => {
       if (resp.error) {
         alert(resp.error)
       } else {
+        console.log("before adding, after create")
         dispatch(addMilestone(resp.data))
         dispatch(resetMilestoneForm())
         history.push(`/milestones/${resp.data.id}`)
@@ -81,15 +94,17 @@ export const createMilestone = (milestoneData, history) => {
   }
 }
 
-export const updateMilestone = (milestone, history) => {
+export const updateMilestone = (milestoneData, history) => {
   return dispatch => {
     const dataToBeSent = {
-      when: milestone.when,
-      what: milestone.what,
-      picture: milestone.picture,
-      heading: milestone.heading
+      when: milestoneData.when,
+      what: milestoneData.what,
+      picture: milestoneData.picture,
+      heading: milestoneData.heading,
+      user_id: milestoneData.userId
     }
-    return fetch("http://localhost:3000/api/v1/milestones", {
+
+    return fetch(`http://localhost:3000/api/v1/milestones/${milestoneData.milestoneId}`, {
       credentials: "include",
       method: "PATCH",
       headers: {
@@ -102,10 +117,35 @@ export const updateMilestone = (milestone, history) => {
       if (resp.error) {
         alert(resp.error)
       } else {
-        dispatch(updateMilestoneSuccess(resp.data))
+        dispatch(updateMilestoneSuccess(resp.data)) //will update the store
+        dispatch(resetMilestoneForm())
         history.push(`/milestones/${resp.data.id}`)
       }
     })
     .catch(console.log)
   }
 }
+
+
+export const deleteMilestone = (milestoneId, history) => {
+
+  return dispatch => {
+    return fetch(`http://localhost:3000/api/v1/milestones/${milestoneId}`, {
+      credentials: "include",
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then(r => r.json())
+    .then(resp => {
+      if (resp.error) {
+        alert(resp.error)
+      } else {
+        dispatch(deleteMilestoneSuccess(milestoneId))
+        history.push(`/milestones/`)
+      }
+    })
+    .catch(console.log)
+  }
+    }

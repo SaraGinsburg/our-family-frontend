@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const MyMilestones = props => {
   const milestoneCards = props.milestones.length > 0 ?
-    props.milestones.map(m => (<p key={m.id}><Link to={`/milestones/${m.id}`}>{m.attributes.what}</Link></p>)):
+    props.milestones.map(m => (<p key={m.id}><Link to={`/milestones/${m.id}`}>{m.attributes.heading}</Link></p>)):
     null
 
     return  milestoneCards

@@ -1,7 +1,7 @@
 import React from 'react'
 import MilestoneForm from './MilestoneForm'
+import { updateMilestone, deleteMilestone  } from '../actions/myMilestones'
 // add to /actions next 2 functions
-import { updateMilestone } from '../actions/myMilestones'
 import { setFormDataForEdit, resetMilestoneForm } from '../actions/milestoneForm'
 import { connect } from 'react-redux'
 
@@ -19,7 +19,7 @@ class EditMilestoneFormWrapper extends React.Component {
 
   }
 
-  handleSubmit = (formData) => {
+  handleSubmit = (formData, userId) => {
     const { updateMilestone, milestone, history } = this.props
     updateMilestone({
       ...formData,
@@ -28,8 +28,8 @@ class EditMilestoneFormWrapper extends React.Component {
   }
 
   render() {
-    const { history, handleSubmit } = this.props
-    return <MilestoneForm editMode history={history} handleSubmit={this.handleSubmit} />
+    const { history, handleSubmit} = this.props
+    return <MilestoneForm editMode  handleSubmit={this.handleSubmit} />
   }
 
 

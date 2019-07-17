@@ -8,7 +8,6 @@ const MilestoneCard = ({milestone}) => {
     milestone ?
     <div>
       <h3>{milestone.attributes.heading}</h3>
-      <img className="MilestoneImage" src={milestone.attributes.picture} alt=""  />
       <h5>{milestone.attributes.when}</h5>
       <p>{milestone.attributes.what}</p>
       <Link to={`/milestones/${milestone.id}/edit`}> Edit this milestone</Link>

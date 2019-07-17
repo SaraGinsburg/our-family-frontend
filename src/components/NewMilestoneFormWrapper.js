@@ -14,4 +14,4 @@ const NewMilestoneFormWrapper = ({ history, createMilestone }) => {
   return <MilestoneForm history={history} handleSubmit={handleSubmit} />
 }
 
-export default connect(null, {createMilestone})(NewMilestoneFormWrapper);
+export default connect(null, { createMilestone })(NewMilestoneFormWrapper);

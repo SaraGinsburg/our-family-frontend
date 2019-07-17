@@ -55,7 +55,18 @@ in KindWords:
   --> adding a record to kindWords.
   --> del kindWords.
 
+##7/15
+  add to redux store
+  clear form
+  url change
 
+##7/16
+  allow an update of a milestone, after the page show.
+  --> make sure milestone is in store
+  --> populate form with milestone
+  --> save updates to the record
+
+  layout user's card with all necessary buttons, for milestones, kindWords and niceDeeds
 ##QUESTIONS TO TC:
   -in components/users did not allow a <div> in the return. why?
   const Users = props => {

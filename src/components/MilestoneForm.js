@@ -3,20 +3,19 @@ import { updateMilestoneForm } from '../actions/milestoneForm'
 import { connect } from 'react-redux'
 
 
-const MilestoneForm = ({ formData,  updateMilestoneForm,  userId, milestone, handleSubmit, editMode }) => {
-
-  const { heading, when, what, picture } = {formData}
+const MilestoneForm = ({ formData, updateMilestoneForm,  userId, milestone, handleSubmit, editMode }) => {
+console.log("in MilestoneForm" , "formData:", formData, "userId:", userId)
+  const { when, what, picture, heading } = formData
 
   const handleChange = event => {
     const { name, value } = event.target
     updateMilestoneForm(name, value)
   }
 
-
-
   return (
     <form onSubmit={event => {
       event.preventDefault()
+      console.log("before handle submit", "formData:", formData, "userId:", userId)
       handleSubmit(formData)
     }}>
       <input
@@ -57,7 +56,7 @@ const MilestoneForm = ({ formData,  updateMilestoneForm,  userId, milestone, han
 const mapStateToProps = state => {
   const userId = state.currentUser ? state.currentUser.id : ""
   return {
-    formData: state.MilestoneForm,
+    formData: state.milestoneForm,
     userId
   }
 }
