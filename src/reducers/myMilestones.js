@@ -4,7 +4,6 @@ export default (state = [], action) => {
     case "SET_MY_MILESTONES":
       return action.milestones
     case "UPDATE_MILESTONE":
-      console.log("in update trip action is", action)
       return state.map(milestone => milestone.id === action.milestone.id ? action.milestone : milestone)
     case "ADD_MILESTONE":
       return state.concat(action.milestone)

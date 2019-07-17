@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 
 
 const MilestoneCard = ({milestone}) => {
-  console.log("in MilestoneCard", milestone)
   return (
     milestone ?
     <div>

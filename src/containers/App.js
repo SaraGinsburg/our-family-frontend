@@ -5,17 +5,12 @@ import { getCurrentUser } from '../actions/currentUser'
 import  NavBar  from '../components/NavBar'
 import Home from '../components/Home'
 import  Login  from '../components/Login'
-import Logout from '../components/Logout'
 import Signup from '../components/Signup'
 import MyMilestones from '../components/MyMilestones'
-import MilestoneForm from '../components/MilestoneForm'
 import MilestoneCard from '../components/MilestoneCard'
-import MainContainer from '../components/MainContainer'
 import NewMilestoneFormWrapper from '../components/NewMilestoneFormWrapper'
 import EditMilestoneFormWrapper from '../components/EditMilestoneFormWrapper'
-import { Route, Switch, withRouter, Link } from 'react-router-dom'
-import { setFormDataForEdit } from '../actions/milestoneForm'
-
+import { Route, Switch, withRouter } from 'react-router-dom'
 import UserCard from '../components/UserCard'
 
 class App extends React.Component {
@@ -25,8 +20,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { loggedIn, milestones, setFormDataForEdit } = this.props
-    console.log("in App.js milestones:", milestones)
+    const { loggedIn, milestones } = this.props
     return (
       <div className="App">
        { loggedIn ?  <NavBar location={this.props.location}/>  : <Home/> }
@@ -40,7 +34,6 @@ class App extends React.Component {
           <Route exact path='/milestones/new' component={NewMilestoneFormWrapper}/>
           <Route exact path='/milestones/:id/edit' render={props=> {
             const milestone = milestones.find(milestone => milestone.id === props.match.params.id)
-            console.log("props in App.js :",props, "milestone:", milestone)
             return <EditMilestoneFormWrapper milestone={milestone} {...props}/>}}/>
           <Route exact path='/milestones/:id/' render={props => {
             const milestone = milestones.find(milestone => milestone.id === props.match.params.id)
@@ -60,4 +53,4 @@ const mapStateToProps = state => {
   })
 }
 
-export default withRouter(connect(mapStateToProps, {getCurrentUser, setFormDataForEdit})(App));
+export default withRouter(connect(mapStateToProps, {getCurrentUser})(App));

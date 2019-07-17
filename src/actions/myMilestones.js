@@ -50,7 +50,6 @@ export const getMyMilestones = () => {
       if (response.error) {
         alert(response.error)
       } else {
-        console.log("in getMyMilestones", response.data)
         dispatch(setMyMilestones(response.data))
       }
     })
@@ -83,7 +82,6 @@ export const createMilestone = (milestoneData, history) => {
       if (resp.error) {
         alert(resp.error)
       } else {
-        console.log("before adding, after create")
         dispatch(addMilestone(resp.data))
         dispatch(resetMilestoneForm())
         history.push(`/milestones/${resp.data.id}`)
@@ -100,8 +98,7 @@ export const updateMilestone = (milestoneData, history) => {
       when: milestoneData.when,
       what: milestoneData.what,
       picture: milestoneData.picture,
-      heading: milestoneData.heading,
-      user_id: milestoneData.userId
+      heading: milestoneData.heading
     }
 
     return fetch(`http://localhost:3000/api/v1/milestones/${milestoneData.milestoneId}`, {
@@ -118,7 +115,6 @@ export const updateMilestone = (milestoneData, history) => {
         alert(resp.error)
       } else {
         dispatch(updateMilestoneSuccess(resp.data)) //will update the store
-        dispatch(resetMilestoneForm())
         history.push(`/milestones/${resp.data.id}`)
       }
     })
@@ -126,9 +122,7 @@ export const updateMilestone = (milestoneData, history) => {
   }
 }
 
-
 export const deleteMilestone = (milestoneId, history) => {
-
   return dispatch => {
     return fetch(`http://localhost:3000/api/v1/milestones/${milestoneId}`, {
       credentials: "include",

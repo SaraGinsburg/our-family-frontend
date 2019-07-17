@@ -18,7 +18,6 @@ export const clearCurrentUser = () => {
 
 // asynchronous action creators
   export const login = (credentials, history) => {
-    console.log("credentials are", credentials)
     return dispatch => {
       return fetch("http://localhost:3000/api/v1/login", {
         credentials: "include",
@@ -45,7 +44,6 @@ export const clearCurrentUser = () => {
 
 
 export const signup = (credentials, history)  => {
-    console.log("credentials are", credentials)
 
     return dispatch => {
       const userData = {
@@ -61,7 +59,6 @@ export const signup = (credentials, history)  => {
       })
         .then(r => r.json())
         .then(response => {
-          console.log("in signup", response)
           if (response.error) {
             alert(response.error)
           } else {
@@ -87,7 +84,7 @@ export const signup = (credentials, history)  => {
   }
 
   export const getCurrentUser = () => {
-    console.log("DISPATCHING GET CURRENT USER")
+
     return dispatch => {
       return fetch("http://localhost:3000/api/v1/get_current_user", {
         credentials: "include",

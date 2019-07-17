@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 
 
 const MilestoneForm = ({ formData, updateMilestoneForm,  userId, milestone, handleSubmit, editMode }) => {
-console.log("in MilestoneForm" , "formData:", formData, "userId:", userId)
   const { when, what, picture, heading } = formData
 
   const handleChange = event => {
@@ -15,7 +14,6 @@ console.log("in MilestoneForm" , "formData:", formData, "userId:", userId)
   return (
     <form onSubmit={event => {
       event.preventDefault()
-      console.log("before handle submit", "formData:", formData, "userId:", userId)
       handleSubmit(formData)
     }}>
       <input
