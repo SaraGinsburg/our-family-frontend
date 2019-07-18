@@ -1,5 +1,5 @@
 import React  from 'react';
-import '../App.css';
+import './App.css';
 import { connect } from 'react-redux'
 import { getCurrentUser } from '../actions/currentUser'
 import  NavBar  from '../components/NavBar'
@@ -24,9 +24,6 @@ class App extends React.Component {
     return (
       <div className="App">
        { loggedIn ?  <NavBar location={this.props.location}/>  : <Home/> }
-
-          <UserCard user= {this.props.currentUser} />
-
         <Switch>
           <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
           <Route exact path='/login' component={Login}/>

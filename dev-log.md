@@ -67,6 +67,13 @@ in KindWords:
   --> save updates to the record
 
   layout user's card with all necessary buttons, for milestones, kindWords and niceDeeds
+
+
+##7/18
+<Button variant="outline-secondary">My Milestones</Button>
+<Button variant="outline-secondary">My Nice Deeds</Button>
+<Button variant="outline-secondary">My Kind Words</Button>
+
 ##QUESTIONS TO TC:
   -in components/users did not allow a <div> in the return. why?
   const Users = props => {
