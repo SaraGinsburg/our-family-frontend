@@ -1,15 +1,25 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
+import { Jumbotron, Container, Row, Col, Image, Button } from 'react-bootstrap'
+import './Home.css'
 
+class Home extends Component {
 
-const Home = () => (
-
- <div>
-    <span>
-      <h2>Welcome to Our Family!</h2>
-      Please <Link to="/signup">Sign Up</Link> or <Link to="/login">Log In</Link>
-    </span>
-  </div>
-)
+  render() {
+    return (
+      <Container>
+        <Jumbotron>
+          <h2>Welcome to Our Family!</h2>
+        </Jumbotron>
+          <Link to="/signup">
+            <Button variant="outline-secondary">Sign Up</Button>
+          </Link>
+          <Link to="/login">
+            <Button variant="outline-secondary">Log In</Button>
+          </Link>
+      </Container>
+    )
+  }
+}
 
 export default Home;

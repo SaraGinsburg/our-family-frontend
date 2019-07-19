@@ -3,20 +3,25 @@ import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import Logout from './Logout'
 import UserCard from './UserCard'
-
+import { Button, Container } from 'react-bootstrap'
 
 const  NavBar = ({currentUser, loggedIn }) => {
 
   return (
     <div className="NavBar">
       { loggedIn
-        ? <><p id="loggedin">Logged in as {currentUser.attributes.first_name} {currentUser.attributes.last_name}</p>
-          <br/>
-          <UserCard user= {currentUser} />
-          <Logout/></>
+        ? <>
+
+          <Container>
+            <UserCard user= {currentUser} />
+      
+            <Logout/>
+          </Container>
+          </>
         : null
       }
-      <NavLink exact activeClassName="active" to="/milestones">My Milestones  </NavLink>
+      <Button variant="outline-secondary" size="sm"><NavLink exact activeClassName="active" to="/milestones">My Milestones  </NavLink></Button>
+
       <NavLink exact activeClassName="active" to="/milestones/new">New Milestones  </NavLink>
     </div>
   )
