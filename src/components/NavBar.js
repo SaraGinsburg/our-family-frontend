@@ -1,24 +1,36 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import Logout from './Logout'
 import UserCard from './UserCard'
-import { Button, Container } from 'react-bootstrap'
+import { Jumbotron, Row, Col, Image, Button, Container } from 'react-bootstrap'
 
 const  NavBar = ({currentUser, loggedIn }) => {
-
   return (
-    <div className="NavBar">
-      { loggedIn
-        ? <>
-
-          <Container>
+    <div >
+      {
+        <>
+        <Container>
+          <header className="first">
             <UserCard user= {currentUser} />
-      
-            <Logout/>
-          </Container>
-          </>
-        : null
+          </header>
+
+          <div id="bottom">
+            <Row >
+              <Col><h3>Milestone</h3></Col>
+              <Col><h3>Nice Deeds</h3></Col>
+              <Col><h3>Kind Words</h3></Col>
+            </Row>
+          </div>
+
+        </Container>
+
+        <Logout/>
+      </>
+
+
+
       }
       <Button variant="outline-secondary" size="sm"><NavLink exact activeClassName="active" to="/milestones">My Milestones  </NavLink></Button>
 
