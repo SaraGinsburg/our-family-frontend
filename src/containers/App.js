@@ -8,6 +8,9 @@ import  Login  from '../components/Login'
 import Signup from '../components/Signup'
 import MyMilestones from '../components/MyMilestones'
 import MilestoneCard from '../components/MilestoneCard'
+import MilestoneContainer from '../components/MilestoneContainer'
+import NiceDeedContainer from '../components/NiceDeedContainer'
+import KindWordContainer from '../components/KindWordContainer'
 import NewMilestoneFormWrapper from '../components/NewMilestoneFormWrapper'
 import EditMilestoneFormWrapper from '../components/EditMilestoneFormWrapper'
 import { Route, Switch, withRouter } from 'react-router-dom'
@@ -20,13 +23,23 @@ class App extends React.Component {
   }
 
   render() {
-    const { loggedIn, milestones } = this.props
+    const { loggedIn, milestones, currentUser } = this.props
     return (
       <div className="App">
-       { loggedIn ?  <NavBar location={this.props.location}/>  : <Home/> }
+       { loggedIn ?
+         <>
+           <NavBar location={this.props.location}/> 
+           <UserCard user= {currentUser} />
+           <MilestoneContainer loggedIn={loggedIn} location={this.props.location}/>
+           <NiceDeedContainer loggedIn={loggedIn} location={this.props.location}/>
+           <KindWordContainer loggedIn={loggedIn} location={this.props.location}/>
+         </>
+         :
+         <Home/> }
         <Switch>
           <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
           <Route exact path='/login' component={Login}/>
+          <Route exact path='/home' component={Home}/>
           <Route exact path='/milestones' component={MyMilestones}/>
           <Route exact path='/milestones/new' component={NewMilestoneFormWrapper}/>
           <Route exact path='/milestones/:id/edit' render={props=> {
@@ -45,6 +58,7 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return({
+    currentUser: state.currentUser,
     loggedIn: !!state.currentUser,
     milestones: state.myMilestones
   })

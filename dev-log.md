@@ -74,6 +74,21 @@ in KindWords:
 <Button variant="outline-secondary">My Nice Deeds</Button>
 <Button variant="outline-secondary">My Kind Words</Button>
 
+
+##7/19
+create components for the displays below the picture!!!!!
+
+##7/20
+-fix twin's birthdate DONE
+-resize userCard, it is too wide
+
+create a component for milestone display that will include the buttons/links
+for viewing all milestones and adding a new milestone.
+
+create similar components for kindWords and niceDeeds.
+
+
+
 ##QUESTIONS TO TC:
   -in components/users did not allow a <div> in the return. why?
   const Users = props => {
