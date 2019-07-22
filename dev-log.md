@@ -87,7 +87,17 @@ for viewing all milestones and adding a new milestone.
 
 create similar components for kindWords and niceDeeds.
 
+##7/21
+build components:
+editKindWordsFormWrapper DONE
+newKindWordsFormWrapper - DONE
+KindWordCard,-DONE
+KindWordForm - DONE
+MyKindWords, - DONE
 
+build actions and reducers:
+kindWordForm - DONE
+myKindWords - DONE
 
 ##QUESTIONS TO TC:
   -in components/users did not allow a <div> in the return. why?

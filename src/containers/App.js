@@ -8,11 +8,17 @@ import  Login  from '../components/Login'
 import Signup from '../components/Signup'
 import MyMilestones from '../components/MyMilestones'
 import MilestoneCard from '../components/MilestoneCard'
+import NewMilestoneFormWrapper from '../components/NewMilestoneFormWrapper'
+import EditMilestoneFormWrapper from '../components/EditMilestoneFormWrapper'
+
+import MyKindWords from '../components/MyKindWords'
+import KindWordCard from '../components/KindWordCard'
+import NewKindWordFormWrapper from '../components/NewKindWordFormWrapper'
+import EditKindWordFormWrapper from '../components/EditKindWordFormWrapper'
+
 import MilestoneContainer from '../components/MilestoneContainer'
 import NiceDeedContainer from '../components/NiceDeedContainer'
 import KindWordContainer from '../components/KindWordContainer'
-import NewMilestoneFormWrapper from '../components/NewMilestoneFormWrapper'
-import EditMilestoneFormWrapper from '../components/EditMilestoneFormWrapper'
 import { Route, Switch, withRouter } from 'react-router-dom'
 import UserCard from '../components/UserCard'
 
@@ -23,12 +29,12 @@ class App extends React.Component {
   }
 
   render() {
-    const { loggedIn, milestones, currentUser } = this.props
+    const { loggedIn, milestones, currentUser, kindWords } = this.props
     return (
       <div className="App">
        { loggedIn ?
          <>
-           <NavBar location={this.props.location}/> 
+           <NavBar location={this.props.location}/>
            <UserCard user= {currentUser} />
            <MilestoneContainer loggedIn={loggedIn} location={this.props.location}/>
            <NiceDeedContainer loggedIn={loggedIn} location={this.props.location}/>
@@ -40,6 +46,7 @@ class App extends React.Component {
           <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
           <Route exact path='/login' component={Login}/>
           <Route exact path='/home' component={Home}/>
+
           <Route exact path='/milestones' component={MyMilestones}/>
           <Route exact path='/milestones/new' component={NewMilestoneFormWrapper}/>
           <Route exact path='/milestones/:id/edit' render={props=> {
@@ -50,6 +57,18 @@ class App extends React.Component {
             console.log(milestone)
             return <MilestoneCard milestone={milestone} {...props}/>
           }}/>
+
+          <Route exact path='/kindwords' component={MyKindWords}/>
+          <Route exact path='/kindwords/new' component={NewKindWordFormWrapper}/>
+          <Route exact path='/kindwords/:id/edit' render={props=> {
+            const kindWord = kindWords.find(kindWord => kindWord.id === props.match.params.id)
+            return <EditKindWordFormWrapper kindWord={kindWord} {...props}/>}}/>
+          <Route exact path='/kindWords/:id/' render={props => {
+            const kindWord = kindWords.find(kindWord => kindWord.id === props.match.params.id)
+            console.log(kindWord)
+            return <KindWordCard kindWord={kindWord} {...props}/>
+          }}/>
+
         </Switch>
       </div>
     );
@@ -60,7 +79,8 @@ const mapStateToProps = state => {
   return({
     currentUser: state.currentUser,
     loggedIn: !!state.currentUser,
-    milestones: state.myMilestones
+    milestones: state.myMilestones,
+    kindWords: state.MyKindWords
   })
 }
 
