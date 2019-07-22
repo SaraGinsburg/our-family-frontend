@@ -38,7 +38,7 @@ export const deleteKindWordSuccess = kindWordId => {
 // asynchronous action creators
 export const getMyKindWords = () => {
   return dispatch => {
-    return fetch("http://localhost:3000/api/v1/kindWords", {
+    return fetch("http://localhost:3000/api/v1/kind_words", {
       credentials: "include",
       method: "GET",
       headers: {
@@ -66,10 +66,11 @@ export const createKindWord = (kindWordData, history) => {
         who: kindWordData.who,
         user_id: kindWordData.userId
     }
+    debugger
     // add to redux store
     // clear form
     // url change
-    return fetch("http://localhost:3000/api/v1/kindWords", {
+    return fetch("http://localhost:3000/api/v1/kind_words", {
       credentials: "include",
       method: "POST",
       headers: {
@@ -82,9 +83,10 @@ export const createKindWord = (kindWordData, history) => {
       if (resp.error) {
         alert(resp.error)
       } else {
+        console.log("resp", resp)
         dispatch(addKindWord(resp.data))
         dispatch(resetKindWordForm())
-        history.push(`/kindWords/${resp.data.id}`)
+        // history.push(`/kindWords/${resp.data.id}`)
       }
     })
     .then(console.log)
@@ -102,7 +104,7 @@ export const updateKindWord = (kindWordData, history) => {
       user_id: kindWordData.userId
     }
 
-    return fetch(`http://localhost:3000/api/v1/kindWords/${kindWordData.kindWordId}`, {
+    return fetch(`http://localhost:3000/api/v1/kind_words/${kindWordData.kindWordId}`, {
       credentials: "include",
       method: "PATCH",
       headers: {
@@ -125,7 +127,7 @@ export const updateKindWord = (kindWordData, history) => {
 
 export const deleteKindWord = (kindWordId, history) => {
   return dispatch => {
-    return fetch(`http://localhost:3000/api/v1/kindWords/${kindWordId}`, {
+    return fetch(`http://localhost:3000/api/v1/kind_words/${kindWordId}`, {
       credentials: "include",
       method: "DELETE",
       headers: {

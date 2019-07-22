@@ -4,13 +4,13 @@ import { getUsers } from '../actions/users'
 import { connect } from 'react-redux'
 
 
-const kindWordForm = ({ formData, updateKindWordForm, userId, kindWord, handleSubmit, editMode}) => {
+const kindWordForm = ({ formData, updateKindWordForm, getUsers, userId, kindWord, handleSubmit, editMode}) => {
   const { when, what, heading, who } = formData
 
-  const usersChoice = users.filter(user => user.id === action.userId ? false : true)
 
-  console.log(usersChoice)
-  const usersChoiceOptions = usersChoice.map((u) => <option key={u.first_name}>{u.first_name})
+  // const usersChoice = state.users.filter(user => user.id === this.state.currentUser.userId ? false : true)
+  // console.log(usersChoice)
+  // const usersChoiceOptions = usersChoice.map((u) => <option key={u.first_name}>{u.first_name}</option>)
 
 
   const handleChange = event => {
@@ -34,7 +34,7 @@ const kindWordForm = ({ formData, updateKindWordForm, userId, kindWord, handleSu
         placeholder="who"
         name="who"
         onChange={handleChange}
-        value=<select>{usersChoiceOptions}</select>
+        // value=<select>{usersChoiceOptions}</select>
       /><br/>
 
       <input
@@ -69,4 +69,4 @@ const kindWordForm = ({ formData, updateKindWordForm, userId, kindWord, handleSu
     }
   }
 
-  export default connect(mapStateToProps, {updateKindWordForm})(kindWordForm)
+  export default connect(mapStateToProps, {updateKindWordForm, getUsers})(kindWordForm)

@@ -2,8 +2,10 @@ import React  from 'react';
 import './App.css';
 import { connect } from 'react-redux'
 import { getCurrentUser } from '../actions/currentUser'
+import { getUsers } from '../actions/users'
 import  NavBar  from '../components/NavBar'
 import Home from '../components/Home'
+import Users from '../components/Users'
 import  Login  from '../components/Login'
 import Signup from '../components/Signup'
 import MyMilestones from '../components/MyMilestones'
@@ -26,6 +28,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.props.getCurrentUser()
+    this.props.getUsers()
   }
 
   render() {
@@ -46,7 +49,7 @@ class App extends React.Component {
           <Route exact path='/signup' render={({history})=><Signup history={history}/>}/>
           <Route exact path='/login' component={Login}/>
           <Route exact path='/home' component={Home}/>
-
+          <Route exact path='/users' component={Users}/>
           <Route exact path='/milestones' component={MyMilestones}/>
           <Route exact path='/milestones/new' component={NewMilestoneFormWrapper}/>
           <Route exact path='/milestones/:id/edit' render={props=> {
@@ -80,8 +83,9 @@ const mapStateToProps = state => {
     currentUser: state.currentUser,
     loggedIn: !!state.currentUser,
     milestones: state.myMilestones,
-    kindWords: state.MyKindWords
+    kindWords: state.MyKindWords,
+    users: state.users
   })
 }
 
-export default withRouter(connect(mapStateToProps, {getCurrentUser})(App));
+export default withRouter(connect(mapStateToProps, {getCurrentUser, getUsers})(App));

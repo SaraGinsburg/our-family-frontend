@@ -99,6 +99,21 @@ build actions and reducers:
 kindWordForm - DONE
 myKindWords - DONE
 
+change to_who to who - DONE
+create a drop down for who
+
+##7/22
+create a drop down for who
+ensure that all is functioning well:
+  form updates,
+  can save form,
+  can update entry
+  can delete entry
+
+enlarge text input area
+
+
+
 ##QUESTIONS TO TC:
   -in components/users did not allow a <div> in the return. why?
   const Users = props => {
