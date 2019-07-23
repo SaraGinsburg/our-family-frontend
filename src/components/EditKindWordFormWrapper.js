@@ -2,7 +2,7 @@ import React from 'react'
 import KindWordForm from './KindWordForm'
 import { updateKindWord, deleteKindWord  } from '../actions/myKindWords'
 // add to /actions next 2 functions
-import { setFormDataForEdit, resetKindWordForm } from '../actions/kindWordForm'
+import { setKindWordFormDataForEdit, resetKindWordForm } from '../actions/kindWordForm'
 import { connect } from 'react-redux'
 
 class EditKindWordFormWrapper extends React.Component {
@@ -39,4 +39,4 @@ class EditKindWordFormWrapper extends React.Component {
   }
 }
 
-export default connect(null, {updateKindWord, setFormDataForEdit, resetKindWordForm, deleteKindWord})(EditKindWordFormWrapper);
+export default connect(null, {updateKindWord, setKindWordFormDataForEdit, resetKindWordForm, deleteKindWord})(EditKindWordFormWrapper);

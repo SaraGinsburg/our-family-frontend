@@ -15,7 +15,7 @@ export default (state=initialState, action) => {
       return returnVal
     case "RESET_NEW_KINDWORD_FORM":
       return initialState
-    case "SET_FORM_DATA_FOR_EDIT":
+    case "SET_KINDWORD_FORM_DATA_FOR_EDIT":
       return action.kindWordFormData
     default:
       return state

@@ -103,12 +103,14 @@ change to_who to who - DONE
 create a drop down for who
 
 ##7/22
-create a drop down for who
+create a options drop down for who
 ensure that all is functioning well:
   form updates,
   can save form,
   can update entry
   can delete entry
+
+  remove heading from kindWord options
 
 enlarge text input area
 

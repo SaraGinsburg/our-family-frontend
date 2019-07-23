@@ -1,6 +1,7 @@
 import { resetLoginForm } from './loginForm'
 import { resetSignupForm } from './signupForm'
 import { getMyMilestones, clearMilestones } from './myMilestones'
+import { getMyKindWords, clearKindWords } from './myKindWords'
 
 // synchronous action creators
 export const setCurrentUser = user => {
@@ -34,6 +35,7 @@ export const clearCurrentUser = () => {
           } else {
             dispatch(setCurrentUser(response.data))
             dispatch(getMyMilestones())
+            dispatch(getMyKindWords())
             dispatch(resetLoginForm())
             history.push('/')
           }
@@ -64,6 +66,7 @@ export const signup = (credentials, history)  => {
           } else {
             dispatch(setCurrentUser(response.data))
             dispatch(getMyMilestones())
+            dispatch(getMyKindWords())
             dispatch(resetSignupForm())
             history.push('/')
           }
@@ -76,6 +79,7 @@ export const signup = (credentials, history)  => {
     return dispatch => {
       dispatch(clearCurrentUser())
       dispatch(clearMilestones())
+      dispatch(clearKindWords())
       return fetch('http://localhost:3000/api/v1/logout', {
         credentials: "include",
         method: "DELETE"
@@ -100,7 +104,7 @@ export const signup = (credentials, history)  => {
         } else {
           dispatch(setCurrentUser(response.data))
           dispatch(getMyMilestones())
-
+          dispatch(getMyKindWords())
         }
       })
       .catch(console.log)

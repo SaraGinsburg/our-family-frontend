@@ -5,6 +5,7 @@ import { Card,  CardBody, CardLink, CardTitle} from 'reactstrap';
 
 
 const MyKindWords = props => {
+
   const kindWordCards = props.kindWords.length > 0 ?
     props.kindWords.map(k => (<p key={k.id}><Link to={`/kindWords/${k.id}`}>{k.attributes.heading}</Link></p>)):
     null

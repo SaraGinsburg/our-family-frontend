@@ -12,7 +12,7 @@ export const resetKindWordForm = () => {
   }
 }
 
-export const setFormDataForEdit = kindWord => {
+export const setKindWordFormDataForEdit = kindWord => {
   const kindWordFormData = {
     heading: kindWord.attributes.heading,
     when: kindWord.attributes.when,
@@ -20,7 +20,7 @@ export const setFormDataForEdit = kindWord => {
     who: kindWord.attributes.who
   }
   return {
-    type: "SET_FORM_DATA_FOR_EDIT",
+    type: "SET_KINDWORD_FORM_DATA_FOR_EDIT",
     kindWordFormData
   }
 }

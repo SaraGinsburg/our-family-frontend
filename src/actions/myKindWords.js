@@ -50,6 +50,7 @@ export const getMyKindWords = () => {
       if (response.error) {
         alert(response.error)
       } else {
+        console.log("response.data", response.data)
         dispatch(setMyKindWords(response.data))
       }
     })
@@ -66,7 +67,7 @@ export const createKindWord = (kindWordData, history) => {
         who: kindWordData.who,
         user_id: kindWordData.userId
     }
-    debugger
+
     // add to redux store
     // clear form
     // url change
