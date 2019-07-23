@@ -12,7 +12,8 @@ const MilestoneForm = ({ formData, updateMilestoneForm,  userId, milestone, hand
   }
 
   return (
-    <form onSubmit={event => {
+
+    <form className="FormContainer" onSubmit={event => {
       event.preventDefault()
       handleSubmit(formData)
     }}>
@@ -21,28 +22,30 @@ const MilestoneForm = ({ formData, updateMilestoneForm,  userId, milestone, hand
         name="heading"
         onChange={handleChange}
         value={heading}
-      /><br/>
+      /><br/><br/>
 
       <input
         placeholder="when"
         name="when"
         onChange={handleChange}
         value={when}
-      /><br/>
+      /><br/><br/>
 
-      <input
-        placeholder="what"
-        name="what"
-        onChange={handleChange}
-        value={what}
-      /><br/>
+
+        <textarea
+          placeholder="what"
+          rows="6"
+          value={what}
+          onChange={handleChange}
+          /><br/><br/>
+
 
       <input
         placeholder="picture"
         name="picture"
         onChange={handleChange}
         value={picture}
-      /><br/>
+      /><br/><br/>
 
       <input
         type="submit"

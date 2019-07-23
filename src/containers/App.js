@@ -57,6 +57,10 @@ class App extends React.Component {
             return <EditMilestoneFormWrapper milestone={milestone} {...props}/>}}/>
           <Route exact path='/milestones/:id/' render={props => {
             const milestone = milestones.find(milestone => milestone.id === props.match.params.id)
+
+            // The library passes in a prop called match into every route that is rendered.
+            // Inside this match object is another object called params . This holds all matching params where the key is the name we
+            // specified when creating the route and the value is the actual value in the URL.
             console.log(milestone)
             return <MilestoneCard milestone={milestone} {...props}/>
           }}/>
@@ -68,7 +72,6 @@ class App extends React.Component {
             return <EditKindWordFormWrapper kindWord={kindWord} {...props}/>}}/>
           <Route exact path='/kindWords/:id/' render={props => {
             const kindWord = kindWords.find(kindWord => kindWord.id === props.match.params.id)
-            console.log(kindWord)
             return <KindWordCard kindWord={kindWord} {...props}/>
           }}/>
 
@@ -83,7 +86,7 @@ const mapStateToProps = state => {
     currentUser: state.currentUser,
     loggedIn: !!state.currentUser,
     milestones: state.myMilestones,
-    kindWords: state.MyKindWords,
+    kindWords: state.myKindWords,
     users: state.users
   })
 }

@@ -19,7 +19,7 @@ const kindWordForm = ({ formData, updateKindWordForm, getUsers, userId, kindWord
   }
 
   return (
-    <form onSubmit={event => {
+    <form className="FormContainer" onSubmit={event => {
       event.preventDefault()
       handleSubmit(formData)
     }}>

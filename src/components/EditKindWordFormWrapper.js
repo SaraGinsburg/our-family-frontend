@@ -8,11 +8,11 @@ import { connect } from 'react-redux'
 class EditKindWordFormWrapper extends React.Component {
 
   componentDidMount(){
-    this.props.kindWord && this.props.setFormDataForEdit(this.props.kindWord)
+    this.props.kindWord && this.props.setKindWordFormDataForEdit(this.props.kindWord)
   }
 
   componentDidUpdate(prevProps) {
-    this.props.kindWord && !prevProps.kindWord && this.props.setFormDataForEdit(this.props.kindWord)
+    this.props.kindWord && !prevProps.kindWord && this.props.setKindWordFormDataForEdit(this.props.kindWord)
   }
 
   componentWillUnmount() {
