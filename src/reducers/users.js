@@ -1,7 +1,7 @@
-export default (state = [], action) => {
+export default (state = {users: []}, action) => {
   switch (action.type) {
     case "SET_USERS":
-      return action.users
+      return {users: action.users}
     default:
       return state
   }
