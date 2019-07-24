@@ -5,9 +5,10 @@ import {Link} from 'react-router-dom'
 const MilestoneCard = ({milestone}) => {
   return (
     milestone ?
-    <div>
-      <h3>{milestone.attributes.heading}</h3>
-      <h5>{milestone.attributes.when}</h5>
+    <div className="MilestoneCards">
+      <br/>
+      <h3>{milestone.attributes.heading}</h3><br/>
+      <h5>{milestone.attributes.when}</h5><br/>
       <p>{milestone.attributes.what}</p>
       <Link to={`/milestones/${milestone.id}/edit`}> Edit this milestone</Link>
     </div> :

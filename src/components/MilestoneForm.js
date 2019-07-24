@@ -17,6 +17,7 @@ const MilestoneForm = ({ formData, updateMilestoneForm,  userId, milestone, hand
       event.preventDefault()
       handleSubmit(formData)
     }}>
+      <br/>
       <input
         placeholder="heading"
         name="heading"
@@ -34,6 +35,7 @@ const MilestoneForm = ({ formData, updateMilestoneForm,  userId, milestone, hand
 
         <textarea
           placeholder="what"
+          name="what"
           rows="6"
           value={what}
           onChange={handleChange}

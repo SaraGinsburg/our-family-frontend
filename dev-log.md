@@ -110,8 +110,7 @@ ensure that all is functioning well:
   can update entry
   can delete entry
 
-  remove heading from kindWord options
-
+  
 enlarge text input area
 
 

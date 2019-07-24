@@ -33,7 +33,15 @@ class EditMilestoneFormWrapper extends React.Component {
     return <>
             <MilestoneForm editMode  handleSubmit={this.handleSubmit} />
             <br/>
-            <button style={{color:"red"}} onClick={()=>deleteMilestone(milestoneId, history)} >Delete this milestone</button>
+            <button style={{
+                          color:"red",
+                          float: "center",
+                          position: "absolute",
+                          bottom: 328,
+                            left: 560,
+                          display: "flex"
+                         }}
+                   onClick={()=>deleteMilestone(milestoneId, history)} >Delete this milestone</button>
           </>
 
   }

@@ -21,42 +21,59 @@ const kindWordForm = ({ formData, users, updateKindWordForm, getUsers, userId, k
   return (
     <form className="FormContainer" onSubmit={event => {
       event.preventDefault()
-      debugger // see what formdata is , id for who
+    //  debugger // see what formdata is , id for who
       handleSubmit(formData) // inside put debugger, ensure getting right fields, who field
       //on backend with 2 ids,
       //if switching, do before fetching
       //in model
       //pry, to ensure receiving right data
     }}>
-      <input
+      <br/>
+      <select
+        value={heading}
         placeholder="heading"
         name="heading"
         onChange={handleChange}
-        value={heading}
-      /><br/>
+      >
+        <option value="" disabled>Select type:</option>
+        <option value="encouragement">Encouragement</option>
+        <option value="humor">Humor</option>
+        <option value="complement">Complement</option>
+        <option value="good advice">Good Advice</option>
+        <option value="good listening">Good Listening</option>
+        <option value="expressed caring">Expressed Caring</option>
+
+    </select>
+    <br/><br/>
+
+      <input
+      placeholder="when"
+      name="when"
+      onChange={handleChange}
+      value={when}
+      /><br/><br/>
+
+      <textarea
+      placeholder="what"
+      name="what"
+      rows="6"
+      value={what}
+      onChange={handleChange}
+      /><br/><br/>
 
       <select
+        value={who}
         placeholder="who"
         name="who"
         onChange={handleChange}
         >
+        <option value="" disabled>Select Sibling:</option>
         {usersChoiceOptions}
       </select>
-      <br/>
+      <br/><br/>
 
-      <input
-        placeholder="when"
-        name="when"
-        onChange={handleChange}
-        value={when}
-      /><br/>
 
-      <input
-        placeholder="what"
-        name="what"
-        onChange={handleChange}
-        value={what}
-      /><br/>
+
 
       <input
         type="submit"
