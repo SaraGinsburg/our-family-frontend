@@ -110,23 +110,30 @@ ensure that all is functioning well:
   can update entry
   can delete entry
 
-  
+
 enlarge text input area
 
+#7/24
+ensure that using correct branch
+backend work
+  reported by - user_id
+  did the act - who - DONE
+  allow for 2 types of reporting: acts/kind words reported by...
+                                  acts/kind words done by....
+  add points to the 2 children: who and the user_id
+      make sure that 'approved'
 
+
+modify display to show acts done by...
+                   and acts reported by...
 
 ##QUESTIONS TO TC:
-  -in components/users did not allow a <div> in the return. why?
-  const Users = props => {
-    const UserCards = props.users.length > 0 ?
-    props.users.map(u => <UserCard user={u} key={u.id}/>) :
-    null
+  -git sync branch
+  - picture in assests? sometimes does not show...
+  
+- assign a value in a component and pass it to store, KindWordCard shows id instead of name
+- sizing within form
 
-    return (
-      UserCards
-    )
-  }
-  -should I keep old migration files?
   -how to remove the login form component once user is already logged in
   - picture issues. some don't show.
   - how to minimize them?

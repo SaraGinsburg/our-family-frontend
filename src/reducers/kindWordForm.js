@@ -2,7 +2,8 @@ const initialState = {
   heading: "",
   when: "",
   what: "",
-  who: ""
+  who: "", 
+  whoUser: ""
 }
 
 export default (state=initialState, action) => {

@@ -9,8 +9,11 @@ const kindWordForm = ({ formData, users, updateKindWordForm, getUsers, userId, k
 
 
   const usersChoice = users.filter(user => user.id === userId ? false : true)
-  console.log(usersChoice)
-  const usersChoiceOptions = usersChoice.map((u) => <option id={u.id} key={u.attributes.first_name}>{u.attributes.first_name}</option>)
+  const whoUser = users.find(user => user.id === who)
+
+
+  // const usersChoiceOptions = usersChoice.map((u) => <option id={u.id} key={u.attributes.first_name}>{u.attributes.first_name}</option>)
+  const usersChoiceOptions = usersChoice.map((u) => <option value={u.id} key={u.id}>{u.attributes.first_name}</option>)
 
 
   const handleChange = event => {
@@ -21,12 +24,8 @@ const kindWordForm = ({ formData, users, updateKindWordForm, getUsers, userId, k
   return (
     <form className="FormContainer" onSubmit={event => {
       event.preventDefault()
-    //  debugger // see what formdata is , id for who
-      handleSubmit(formData) // inside put debugger, ensure getting right fields, who field
-      //on backend with 2 ids,
-      //if switching, do before fetching
-      //in model
-      //pry, to ensure receiving right data
+      handleSubmit(formData)
+
     }}>
       <br/>
       <select
