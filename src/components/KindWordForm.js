@@ -37,6 +37,7 @@ const kindWordForm = ({ formData, users, updateKindWordForm, getUsers, userId, k
         <option value="" disabled>Select type:</option>
         <option value="encouragement">Encouragement</option>
         <option value="humor">Humor</option>
+        <option value="gratitude">Gratitude</option>
         <option value="complement">Complement</option>
         <option value="good advice">Good Advice</option>
         <option value="good listening">Good Listening</option>
