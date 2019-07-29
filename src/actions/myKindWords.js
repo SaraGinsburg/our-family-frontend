@@ -1,4 +1,6 @@
 import { resetKindWordForm } from './kindWordForm'
+import { getCurrentUser} from './currentUser'
+
 // synchronous action creators
 export const setMyKindWords = kindWords => {
   return {
@@ -16,6 +18,13 @@ export const clearKindWords = () => {
 export const addKindWord = kindWord => {
   return {
     type: "ADD_KINDWORD",
+    kindWord
+  }
+}
+
+export const addKindWordPointToReportingUser = kindWord => {
+  return {
+    type: "ADD_KINDWORD_TO_REPORTING_USER",
     kindWord
   }
 }
@@ -86,6 +95,7 @@ export const createKindWord = (kindWordData, history) => {
       } else {
         console.log("resp", resp)
         dispatch(addKindWord(resp.data))
+        dispatch(getCurrentUser())
         dispatch(resetKindWordForm())
         history.push(`/kindWords/${resp.data.id}`)
       }
@@ -141,6 +151,7 @@ export const deleteKindWord = (kindWordId, history) => {
         alert(resp.error)
       } else {
         dispatch(deleteKindWordSuccess(kindWordId))
+        dispatch(getCurrentUser())
         history.push(`/kindWords/`)
       }
     })
