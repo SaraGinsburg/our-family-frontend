@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 
 
 const niceDeedForm = ({ formData, users, updateNiceDeedForm, getUsers, userId, niceDeed, handleSubmit, editMode}) => {
+  debugger
   const { when, what, heading, who } = formData
 
 
