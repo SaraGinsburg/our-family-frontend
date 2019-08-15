@@ -13,7 +13,14 @@ const MyMilestones = props => {
                               </p>)):
     null
 
-    // return  milestoneCards
+  const handleClickandSort = () => {
+    const milestoneCards = [...props.milestones]
+      .sort((a, b) => (a.attributes.heading > b.attributes.heading) ? 1 : -1)
+      .map(m => (<p key={m.id}>
+                  <Link to={`/milestones/${m.id}`}>{m.attributes.heading}</Link>
+               </p>))
+               console.log("sorted", milestoneCards)
+  }
 
     return (
       <div className="MilestoneCards">
@@ -21,6 +28,7 @@ const MyMilestones = props => {
             <Card>
               <CardBody>
                 <CardTitle><h4>My Milestones</h4></CardTitle>
+                <button onClick={handleClickandSort}>Sort</button>
                 {milestoneCards}
               </CardBody>
             </Card>
