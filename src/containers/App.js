@@ -18,6 +18,11 @@ import KindWordCard from '../components/KindWordCard'
 import NewKindWordFormWrapper from '../components/NewKindWordFormWrapper'
 import EditKindWordFormWrapper from '../components/EditKindWordFormWrapper'
 
+import MyNiceDeeds from '../components/MyNiceDeeds'
+import NiceDeedCard from '../components/NiceDeedCard'
+import NewNiceDeedFormWrapper from '../components/NewNiceDeedFormWrapper'
+import EditNiceDeedFormWrapper from '../components/EditNiceDeedFormWrapper'
+
 import MilestoneContainer from '../components/MilestoneContainer'
 import NiceDeedContainer from '../components/NiceDeedContainer'
 import KindWordContainer from '../components/KindWordContainer'
@@ -32,7 +37,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { loggedIn, milestones, currentUser, kindWords } = this.props
+    const { loggedIn, milestones, currentUser, kindWords, niceDeeds } = this.props
     return (
       <div className="App">
        { loggedIn ?
@@ -75,6 +80,16 @@ class App extends React.Component {
             return <KindWordCard kindWord={kindWord} {...props}/>
           }}/>
 
+          <Route exact path='/niceDeeds' component={MyNiceDeeds}/>
+          <Route exact path='/niceDeeds/new' component={NewNiceDeedFormWrapper}/>
+          <Route exact path='/niceDeeds/:id/edit' render={props=> {
+            const niceDeed = niceDeeds.find(niceDeed => niceDeed.id === props.match.params.id)
+            return <EditNiceDeedFormWrapper niceDeed={niceDeed} {...props}/>}}/>
+          <Route exact path='/niceDeeds/:id/' render={props => {
+            const niceDeed = niceDeeds.find(niceDeed => niceDeed.id === props.match.params.id)
+            return <NiceDeedCard niceDeed={niceDeed} {...props}/>
+          }}/>
+
         </Switch>
       </div>
     );
@@ -87,6 +102,7 @@ const mapStateToProps = state => {
     loggedIn: !!state.currentUser,
     milestones: state.myMilestones,
     kindWords: state.myKindWords,
+    niceDeeds: state.myNiceDeeds,
     users: state.users
   })
 }
