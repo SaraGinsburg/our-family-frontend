@@ -30,7 +30,7 @@ console.log("props:", props, "niceDeeds:", props.niceDeeds)
 
 const mapStateToProps = state => {
   return {
-    NiceDeeds: state.myNiceDeeds
+    niceDeeds: state.myNiceDeeds
   }
 }
 

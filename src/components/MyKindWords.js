@@ -10,7 +10,7 @@ console.log("props:", props, "kindWords:", props.kindWords)
     props.kindWords.map(k => (<p key={k.id}><Link to={`/kindWords/${k.id}`}>{k.attributes.heading}</Link></p>)):
     null
 
-    // return  kindWordCards
+  
 
     return (
       <div className="KindWordCards">
@@ -25,7 +25,6 @@ console.log("props:", props, "kindWords:", props.kindWords)
         }
       </div>
     );
-
 }
 
 const mapStateToProps = state => {

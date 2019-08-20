@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 
 
 const niceDeedForm = ({ formData, users, updateNiceDeedForm, getUsers, userId, niceDeed, handleSubmit, editMode}) => {
-  debugger
   const { when, what, heading, who } = formData
 
 
@@ -85,6 +84,7 @@ const niceDeedForm = ({ formData, users, updateNiceDeedForm, getUsers, userId, n
 
 
   const mapStateToProps = state => {
+  
     const userId = state.currentUser ? state.currentUser.id : ""
     return {
       formData: state.niceDeedForm,

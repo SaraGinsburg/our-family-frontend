@@ -20,7 +20,7 @@ class EditKindWordFormWrapper extends React.Component {
   }
 
   handleSubmit = (formData) => {
-    debugger
+  
     const { updateKindWord, kindWord, history } = this.props
     updateKindWord({
       ...formData,

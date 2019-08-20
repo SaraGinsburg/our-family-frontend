@@ -19,7 +19,7 @@ class EditNiceDeedFormWrapper extends React.Component {
   }
 
   handleSubmit = (formData) => {
-    debugger
+  
     const { updateNiceDeed, niceDeed, history } = this.props
     updateNiceDeed({
       ...formData,
