@@ -2,6 +2,8 @@ import React from 'react'
   import './UserCard.css'
 
   const UserCard = ({user}) => {
+    console.log("user", user)
+    console.log("pic", user.attributes.picture)
     return (
       !user
       ? ""

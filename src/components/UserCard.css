@@ -1,4 +1,4 @@
-  .UsersContainer {
+.UsersContainer {
     padding: 16px;
   }
 
@@ -82,6 +82,17 @@
     transform: translate(50%,10%)
   }
 
+.NiceDeedCards {
+    float: left;
+    margin: 1.5%;
+    background: whitesmoke;
+    width: 300px;
+    height: 400px;
+
+    justify-content: center;
+    transform: translate(50%,10%)
+  }
+
   .FormContainer {
     float: left;
     margin: 1.5%;
@@ -92,6 +103,8 @@
     justify-content: center;
     transform: translate(50%,10%)
   }
+
+
 
   .UserCard:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);

@@ -7,6 +7,7 @@ import loginForm from './reducers/loginForm'
 import signupForm from './reducers/signupForm'
 import milestoneForm from './reducers/milestoneForm'
 import kindWordForm from './reducers/kindWordForm'
+import niceDeedForm from './reducers/niceDeedForm'
 import myMilestones from './reducers/myMilestones'
 import myKindWords from './reducers/myKindWords'
 import myNiceDeeds from './reducers/myNiceDeeds'
@@ -22,8 +23,8 @@ const reducer = combineReducers({
     myKindWords,
     myNiceDeeds,
     milestoneForm,
-    kindWordForm
-    // userFormData
+    kindWordForm,
+    niceDeedForm
   });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

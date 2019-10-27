@@ -4,6 +4,7 @@ import { updateKindWord, deleteKindWord  } from '../actions/myKindWords'
 // add to /actions next 2 functions
 import { setKindWordFormDataForEdit, resetKindWordForm } from '../actions/kindWordForm'
 import { connect } from 'react-redux'
+import './UserCard.css'
 
 class EditKindWordFormWrapper extends React.Component {
 
@@ -33,7 +34,15 @@ class EditKindWordFormWrapper extends React.Component {
     return <>
             <KindWordForm editMode  handleSubmit={this.handleSubmit} />
             <br/>
-            <button style={{color:"red"}} onClick={()=>deleteKindWord(kindWordId, history)} >Delete this kindWord</button>
+            <button style={{
+              color:"red",
+              float: "center",
+              position: "absolute",
+              bottom: 328,
+              left:   560,
+              display: "flex"
+            }}
+            onClick={()=>deleteKindWord(kindWordId, history)} >Delete this kindWord</button>
           </>
 
   }
