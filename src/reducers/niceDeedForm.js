@@ -11,7 +11,7 @@ export default (state=initialState, action) => {
     case "UPDATE_NEW_NICEDEED_FORM":
       const returnVal = {
         ...state,
-        [action.userFormData.name]: action.userFormData.value
+        [action.formData.name]: action.formData.value
       }
       return returnVal
     case "RESET_NEW_NICEDEED_FORM":

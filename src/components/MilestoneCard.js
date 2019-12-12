@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 const MilestoneCard = ({milestone}) => {
   return (
     milestone ?
-    <div>
+    <div className="MilestoneCards">
       <h3>{milestone.attributes.heading}</h3>
       <h5>{milestone.attributes.when}</h5>
       <p>{milestone.attributes.what}</p>

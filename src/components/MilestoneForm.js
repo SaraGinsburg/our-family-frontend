@@ -34,6 +34,7 @@ const MilestoneForm = ({ formData, updateMilestoneForm,  userId, milestone, hand
 
         <textarea
           placeholder="what"
+          name="what"
           rows="6"
           value={what}
           onChange={handleChange}
