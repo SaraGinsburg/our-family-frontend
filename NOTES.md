@@ -67,3 +67,4 @@ const siblings = [
     }
   }
 ]
+{whoId === "" ? "" : <UserCard user = {users.find(user => user.id === whoId)} />}

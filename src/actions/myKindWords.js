@@ -94,13 +94,12 @@ export const createKindWord = (kindWordData, history) => {
       } else {
         console.log("resp", resp)
         dispatch(addKindWord(resp.data))
+        console.log("after dispatch addKindWord")
         dispatch(getCurrentUser())
         dispatch(resetKindWordForm())
-        history.push(`/kindWords/${resp.data.id}`)
+        // history.push(`/kindWords/${resp.data.id}`)
       }
     })
-    .then(console.log)
-    .catch(console.log)
   }
 }
 

@@ -10,7 +10,6 @@ import UserCard from './UserCard'
 const NewKindWordFormWrapper = ({ history, createKindWord, who, whoId, users}) => {
 
   const handleSubmit = (formData, userId) => {
-    console.log("in NewKindWordFormWrapper userId", userId)
     createKindWord({
       ...formData,
       userId
@@ -21,7 +20,6 @@ const NewKindWordFormWrapper = ({ history, createKindWord, who, whoId, users}) =
 
     <div>
       <KindWordForm history={history} handleSubmit={handleSubmit} />
-
       {whoId === "" ? "" : <UserCard user = {users.find(user => user.id === whoId)} />}
 
     </div>

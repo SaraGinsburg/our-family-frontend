@@ -21,19 +21,10 @@ const kindWordForm = ({ formData, users, updateKindWordForm, getUsers, userId, k
   //   }/></div>)
   // }
 
-  const renderWhoUser = () => {
-  console.log("renderWhoUser")
 
-      return (<div>hi</div>)
-  }
 
   const handleChange = event => {
     const { name, value } = event.target
-
-    if (name === "who"){
-
-      renderWhoUser(value)
-    }
     updateKindWordForm(name, value)
   }
 
@@ -62,6 +53,17 @@ const kindWordForm = ({ formData, users, updateKindWordForm, getUsers, userId, k
     </select>
     <br/><br/>
 
+      <select
+      value={who}
+      placeholder="who"
+      name="who"
+      onChange={handleChange}
+      >
+      <option value="" disabled>Select Sibling:</option>
+      {usersChoiceOptions}
+      </select>
+      <br/><br/>
+
       <input
       placeholder="when"
       name="when"
@@ -76,20 +78,6 @@ const kindWordForm = ({ formData, users, updateKindWordForm, getUsers, userId, k
       value={what}
       onChange={handleChange}
       /><br/><br/>
-
-      <select
-        value={who}
-        placeholder="who"
-        name="who"
-        onChange={handleChange}
-        >
-        <option value="" disabled>Select Sibling:</option>
-        {usersChoiceOptions}
-      </select>
-      <br/><br/>
-
-
-
 
       <input
         type="submit"

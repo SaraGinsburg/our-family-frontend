@@ -45,6 +45,17 @@ const niceDeedForm = ({ formData, users, updateNiceDeedForm, getUsers, userId, n
     </select>
     <br/><br/>
 
+    <select
+    value={who}
+    placeholder="who"
+    name="who"
+    onChange={handleChange}
+    >
+    <option value="" disabled>Select Sibling:</option>
+    {usersChoiceOptions}
+    </select>
+    <br/><br/>
+    
       <input
       placeholder="when"
       name="when"
@@ -60,16 +71,6 @@ const niceDeedForm = ({ formData, users, updateNiceDeedForm, getUsers, userId, n
       onChange={handleChange}
       /><br/><br/>
 
-      <select
-        value={who}
-        placeholder="who"
-        name="who"
-        onChange={handleChange}
-        >
-        <option value="" disabled>Select Sibling:</option>
-        {usersChoiceOptions}
-      </select>
-      <br/><br/>
 
 
 
