@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import UserCard from './UserCard'
 
 
-const NewKindWordFormWrapper = ({ history, createKindWord, who}) => {
+const NewKindWordFormWrapper = ({ history, createKindWord, who, whoId, users}) => {
 
   const handleSubmit = (formData, userId) => {
     console.log("in NewKindWordFormWrapper userId", userId)
@@ -21,17 +21,18 @@ const NewKindWordFormWrapper = ({ history, createKindWord, who}) => {
 
     <div>
       <KindWordForm history={history} handleSubmit={handleSubmit} />
-      {this.props.whoId === "" ? "" : <UserCard user = {users.find(user => user.id === this.props.whoId)} />}
+
+      {whoId === "" ? "" : <UserCard user = {users.find(user => user.id === whoId)} />}
 
     </div>
   )
 }
 
 const mapStateToProps = state => {
-  const whoId = state.KindWordForm.who ? state.KindWordForm.who : ""
 
   return {
-    users: state.users.users
+    users: state.users.users,
+    whoId: state.kindWordForm.who
   }
 }
 
