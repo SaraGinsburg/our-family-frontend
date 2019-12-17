@@ -2,11 +2,11 @@ import React from 'react'
   import './UserCard.css'
 
   const UserCard = ({user}) => {
-    console.log("user", user)
-    console.log("pic", user.attributes.picture)
+    // console.log("pic", user.attributes.picture)
     return (
       !user
       ? ""
+
       : <div key={user.id} className="UserCard"  >
           <h3>{user.attributes.first_name} {user.attributes.last_name}</h3>
           <img className="UserImage" src={user.attributes.picture} alt={user.attributes.first_name} />

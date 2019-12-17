@@ -1,9 +1,13 @@
 import React from 'react'
 import KindWordForm from './KindWordForm'
 import { createKindWord } from '../actions/myKindWords'
-import { connect } from 'react-redux'
+import { getUsers } from '../actions/users'
 
-const NewKindWordFormWrapper = ({ history, createKindWord }) => {
+import { connect } from 'react-redux'
+import UserCard from './UserCard'
+import
+
+const NewKindWordFormWrapper = ({ history, createKindWord, who}) => {
 
   const handleSubmit = (formData, userId) => {
     console.log("in NewKindWordFormWrapper userId", userId)
@@ -13,7 +17,23 @@ const NewKindWordFormWrapper = ({ history, createKindWord }) => {
     }, history)
   }
 
-  return <KindWordForm history={history} handleSubmit={handleSubmit} />
+  return (
+
+    <div>
+      <KindWordForm history={history} handleSubmit={handleSubmit} />
+      {whoId == "" ? "" : <UserCard user= {who} />}
+
+    </div>
+  )
 }
 
-export default connect(null, { createKindWord })(NewKindWordFormWrapper);
+const mapStateToProps = state => {
+  const whoId = state.KindWordForm.who ? state.KindWordForm.who : ""
+  const who = Users.find(user => user.id === whoId)
+
+  return {
+    who
+  }
+}
+
+export default connect(mapStateToProps, { createKindWord, getUsers })(NewKindWordFormWrapper);

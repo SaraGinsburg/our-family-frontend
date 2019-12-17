@@ -2,7 +2,7 @@ import React from 'react'
 import { updateKindWordForm } from '../actions/kindWordForm'
 import { getUsers } from '../actions/users'
 import { connect } from 'react-redux'
-import UserCard from './UserCard'
+
 
 const kindWordForm = ({ formData, users, updateKindWordForm, getUsers, userId, kindWord, handleSubmit, editMode}) => {
   const { when, what, heading, who } = formData
@@ -15,25 +15,9 @@ const kindWordForm = ({ formData, users, updateKindWordForm, getUsers, userId, k
   // const usersChoiceOptions = usersChoice.map((u) => <option id={u.id} key={u.attributes.first_name}>{u.attributes.first_name}</option>)
   const usersChoiceOptions = usersChoice.map((u) => <option value={u.id} key={u.id}>{u.attributes.first_name}</option>)
 
-  // const renderWhoUser = (whoId) => {
-  //     return (<div><UserCard user={
-  //     users.find(user => user.id === whoId )
-  //   }/></div>)
-  // }
-
-  const renderWhoUser = () => {
-  console.log("renderWhoUser")
-
-      return (<div>hi</div>)
-  }
 
   const handleChange = event => {
     const { name, value } = event.target
-
-    if (name === "who"){
-
-      renderWhoUser(value)
-    }
     updateKindWordForm(name, value)
   }
 

@@ -43,6 +43,7 @@ class EditKindWordFormWrapper extends React.Component {
               display: "flex"
             }}
             onClick={()=>deleteKindWord(kindWordId, history)} >Delete this kindWord</button>
+            
           </>
 
   }

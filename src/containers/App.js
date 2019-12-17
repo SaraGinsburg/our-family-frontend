@@ -72,6 +72,7 @@ class App extends React.Component {
 
           <Route exact path='/kindWords' component={MyKindWords}/>
           <Route exact path='/kindWords/new' component={NewKindWordFormWrapper}/>
+          
           <Route exact path='/kindWords/:id/edit' render={props=> {
             const kindWord = kindWords.find(kindWord => kindWord.id === props.match.params.id)
             return <EditKindWordFormWrapper kindWord={kindWord} {...props}/>}}/>
