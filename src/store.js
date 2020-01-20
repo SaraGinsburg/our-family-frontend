@@ -27,8 +27,7 @@ const reducer = combineReducers({
     niceDeedForm
   });
 
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ trace: true, traceLimit: 25 }) || compose;
 const store = createStore(
   reducer,
   composeEnhancer(applyMiddleware(thunk))

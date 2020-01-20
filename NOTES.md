@@ -68,3 +68,52 @@ const siblings = [
   }
 ]
 {whoId === "" ? "" : <UserCard user = {users.find(user => user.id === whoId)} />}
+
+
+withCounter.js
+import React, {Component} from 'react'
+import withCounter from './withCounter'
+
+class ClickCounter extends Component {
+
+
+  render() {
+    const { count, incrementCount } = this.props
+    return <button onClick={incrementCount}> Clicked {count} times</button>
+  }
+}
+
+export default withCounter(ClickCounter)
+****
+
+
+ClickCounter.js
+import React, {Component} from 'react'
+import withCounter from './withCounter'
+
+class ClickCounter extends Component {
+
+
+  render() {
+    const { count, incrementCount } = this.props
+    return <button onClick={incrementCount}> Clicked {count} times</button>
+  }
+}
+
+export default withCounter(ClickCounter)
+*****
+
+HoverCounter.js
+import React, {Component} from 'react'
+import withCounter from './withCounter'
+
+class HoverCounter extends Component {
+
+
+  render() {
+    const { count, incrementCount } = this.props
+    return <h2 onMouseOver={incrementCount}> Hovered {count} times</h2>
+  }
+}
+
+export default withCounter(HoverCounter)

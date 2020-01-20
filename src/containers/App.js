@@ -1,4 +1,7 @@
 import React  from 'react';
+import ClickCounter from '../components/ClickCounter'
+import HoverCounter from '../components/HoverCounter'
+
 import './App.css';
 import { connect } from 'react-redux'
 import { getCurrentUser } from '../actions/currentUser'
@@ -40,6 +43,7 @@ class App extends React.Component {
     const { loggedIn, milestones, currentUser, kindWords, niceDeeds} = this.props
     return (
       <div className="App">
+      
        { loggedIn ?
          <>
            <NavBar location={this.props.location}/>
@@ -72,7 +76,7 @@ class App extends React.Component {
 
           <Route exact path='/kindWords' component={MyKindWords}/>
           <Route exact path='/kindWords/new' component={NewKindWordFormWrapper}/>
-          
+
           <Route exact path='/kindWords/:id/edit' render={props=> {
             const kindWord = kindWords.find(kindWord => kindWord.id === props.match.params.id)
             return <EditKindWordFormWrapper kindWord={kindWord} {...props}/>}}/>
