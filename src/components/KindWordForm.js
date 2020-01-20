@@ -14,6 +14,7 @@ const kindWordForm = ({ formData, users, updateKindWordForm, getUsers, userId, k
 
 
   const handleChange = event => {
+    debugger
     const { name, value } = event.target
     updateKindWordForm(name, value)
   }

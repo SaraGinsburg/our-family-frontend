@@ -1,6 +1,4 @@
 import React  from 'react';
-import ClickCounter from '../components/ClickCounter'
-import HoverCounter from '../components/HoverCounter'
 
 import './App.css';
 import { connect } from 'react-redux'
@@ -43,7 +41,7 @@ class App extends React.Component {
     const { loggedIn, milestones, currentUser, kindWords, niceDeeds} = this.props
     return (
       <div className="App">
-      
+
        { loggedIn ?
          <>
            <NavBar location={this.props.location}/>
