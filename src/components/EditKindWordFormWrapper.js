@@ -31,9 +31,11 @@ class EditKindWordFormWrapper extends React.Component {
 
   render() {
     const { history, deleteKindWord, kindWord, whoId, users} = this.props
+    console.log("whoId", whoId, "kindWord", kindWord)
     const kindWordId = kindWord ? kindWord.id : null
     return (<>
             <KindWordForm editMode  handleSubmit={this.handleSubmit} />
+            {whoId === "" ? "" : <UserCard user = {users.find(user => user.id === whoId)} />}
             <br/>
             <button style={{
               color:"red",
@@ -44,7 +46,6 @@ class EditKindWordFormWrapper extends React.Component {
               display: "flex"
             }}
             onClick={()=>deleteKindWord(kindWordId, history)} >Delete this kindWord</button>
-            {whoId === "" ? "" : <UserCard user = {users.find(user => user.id === whoId)} />}
 
           </>
         )

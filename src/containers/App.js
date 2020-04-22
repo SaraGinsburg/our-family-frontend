@@ -38,7 +38,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { loggedIn, milestones, currentUser, kindWords, niceDeeds} = this.props
+    const { loggedIn, milestones, currentUser, kindWords, niceDeeds, users} = this.props
     return (
       <div className="App">
 
@@ -77,10 +77,34 @@ class App extends React.Component {
 
           <Route exact path='/kindWords/:id/edit' render={props=> {
             const kindWord = kindWords.find(kindWord => kindWord.id === props.match.params.id)
-            return <EditKindWordFormWrapper kindWord={kindWord} {...props}/>}}/>
+            const who = users.find(user => user.id ===  kindWord.attributes.who);
+            debugger
+            // const whoId = who.id
+            return (
+              <>
+              <EditKindWordFormWrapper kindWord={kindWord} {...props}/>
+
+              </>
+            )
+          }}/>
           <Route exact path='/kindWords/:id/' render={props => {
             const kindWord = kindWords.find(kindWord => kindWord.id === props.match.params.id)
-            return <KindWordCard kindWord={kindWord} {...props}/>
+            // console.log("kindword", kindWord["attributes"])
+            // console.log("kindword", kindWord, "who is the kind child?", "kindWord.id", kindWord["attributes"]["who"])
+            // console.log("users - who are you?", users)
+            // const who = users.find(user => user.id ===  kindWord.attributes.who)
+            // console.log("who", dataToBeSent.who)
+            //
+            // <UserCard user={who} />
+            //
+            console.log("props in App.js", props)
+            return (
+              <>
+                <KindWordCard kindWord={kindWord} {...props}/>
+
+              </>
+            )
+
           }}/>
 
           <Route exact path='/niceDeeds' component={MyNiceDeeds}/>
@@ -106,7 +130,7 @@ const mapStateToProps = state => {
     milestones: state.myMilestones,
     kindWords: state.myKindWords,
     niceDeeds: state.myNiceDeeds,
-    users: state.users
+    users: state.users.users
   })
 }
 

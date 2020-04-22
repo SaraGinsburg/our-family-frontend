@@ -95,7 +95,10 @@ export const createKindWord = (kindWordData, history) => {
         console.log("resp", resp)
         dispatch(addKindWord(resp.data))
         dispatch(getCurrentUser())
+
         dispatch(resetKindWordForm())
+        console.log("whoNow", dataToBeSent.who)
+        // console.log("dataToBeSent", dataToBeSent)
         history.push(`/kindWords/${resp.data.id}`)
       }
     })

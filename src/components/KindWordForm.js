@@ -14,13 +14,13 @@ const kindWordForm = ({ formData, users, updateKindWordForm, getUsers, userId, k
 
 
   const handleChange = event => {
-    debugger
     const { name, value } = event.target
     updateKindWordForm(name, value)
   }
 
   return (
     <form className="FormContainer" onSubmit={event => {
+      console.log("who", {who})
       event.preventDefault()
       handleSubmit(formData)
 
