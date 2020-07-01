@@ -11,6 +11,8 @@ export default (state = [], action) => {
       return state.filter(kindWord => kindWord.id === action.kindWordId ? false : true)
     case "CLEAR_KINDWORDS":
       return initialState
+    // case "SET_WHO_USER":
+    //   return action.whoId
     default:
       return state
   }

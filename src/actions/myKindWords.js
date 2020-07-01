@@ -1,5 +1,6 @@
 import { resetKindWordForm } from './kindWordForm'
 import { getCurrentUser} from './currentUser'
+// import { setWhoUser } from './whoUser'
 
 // synchronous action creators
 export const setMyKindWords = kindWords => {
@@ -95,7 +96,7 @@ export const createKindWord = (kindWordData, history) => {
         console.log("resp", resp)
         dispatch(addKindWord(resp.data))
         dispatch(getCurrentUser())
-
+        // dispatch(setWhoUser(dataToBeSent.who))
         dispatch(resetKindWordForm())
         console.log("whoNow", dataToBeSent.who)
         // console.log("dataToBeSent", dataToBeSent)

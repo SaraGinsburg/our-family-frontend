@@ -9,10 +9,11 @@ import UserCard from './UserCard'
 
 const NewKindWordFormWrapper = ({ history, createKindWord, who, whoId, users}) => {
 
-  const handleSubmit = (formData, userId) => {
+  const handleSubmit = (formData, userId, whoId) => {
     createKindWord({
       ...formData,
-      userId
+      userId,
+      whoId
     }, history)
   }
 
