@@ -30,20 +30,12 @@ class EditNiceDeedFormWrapper extends React.Component {
   render() {
     const { history, deleteNiceDeed, niceDeed} = this.props
     const niceDeedId = niceDeed ? niceDeed.id : null
-    return <>
-            <NiceDeedForm editMode  handleSubmit={this.handleSubmit} />
-            <br/>
-            <button style={{
-                          color:"red",
-                          float: "center",
-                          position: "absolute",
-                          bottom: 328,
-                            left: 560,
-                          display: "flex"
-                         }}
-                    onClick={()=>deleteNiceDeed(niceDeedId, history)} >Delete this niceDeed</button>
-          </>
-
+    return(
+      <>
+        <NiceDeedForm editMode  handleSubmit={this.handleSubmit} />
+        <button style={{color:"red"}} onClick={()=>deleteNiceDeed(niceDeedId, history)} >Delete this niceDeed</button>
+      </>
+    );
   }
 }
 

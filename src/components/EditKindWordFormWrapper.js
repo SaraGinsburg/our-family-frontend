@@ -35,17 +35,9 @@ class EditKindWordFormWrapper extends React.Component {
     const kindWordId = kindWord ? kindWord.id : null
     return (<>
             <KindWordForm editMode  handleSubmit={this.handleSubmit} />
+            <button style={{color:"red"}} onClick={()=>deleteKindWord(kindWordId, history)} >Delete this kindWord</button>
             {whoId === "" ? "" : <UserCard user = {users.find(user => user.id === whoId)} />}
             <br/>
-            <button style={{
-              color:"red",
-              float: "center",
-              position: "absolute",
-              bottom: 328,
-              left:   560,
-              display: "flex"
-            }}
-            onClick={()=>deleteKindWord(kindWordId, history)} >Delete this kindWord</button>
 
           </>
         )

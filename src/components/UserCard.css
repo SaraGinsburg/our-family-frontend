@@ -1,15 +1,15 @@
 .UsersContainer {
-    padding: 16px;
+    padding: 10px;
   }
 
   .MilestoneContainer {
-    padding: 16px;
+    padding: 10px;
     float: left;
     margin: 1.5%;
-    width: 30%;
+    width: 26%;
     justify-content: center;
     position: absolute;
-    bottom: 28px;
+    bottom: 5px;
     left: 28px;
     display: flex;
     flex-direction: row;
@@ -18,13 +18,13 @@
   }
 
   .NiceDeedContainer {
-    padding: 16px;
+    padding: 10px;
     float: center;
     margin: 1.5%;
-    width: 30%;
+    width: 26%;
     justify-content: center;
     position: absolute;
-    bottom: 28px;
+    bottom: 5px;
       left: 628px;
     display: flex;
     flex-direction: row;
@@ -34,13 +34,13 @@
   }
 
   .KindWordContainer {
-    padding: 16px;
+    padding: 10px;
     float: right;
     margin: 1.5%;
-    width: 30%;
+    width: 26%;
     justify-content: center;
     position: absolute;
-    bottom: 28px;
+    bottom: 5px;
       left: 328px;
     display: flex;
     flex-direction: row;
@@ -52,8 +52,8 @@
     float: left;
     margin: 1.5%;
     background: whitesmoke;
-    width: 300px;
-    height: 400px;
+    width: 200px;
+    height: 350px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     justify-content: center;
@@ -111,12 +111,12 @@
   }
 
   .UserImage {
-    height: 70%
+    height: 60%
   }
 
   .centered {
     position: absolute;
-    bottom: 28px;
+    bottom: 5px;
       left: 328px;
     display: flex;
   }

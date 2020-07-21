@@ -8,10 +8,11 @@ import React from 'react'
       ? ""
 
       : <div key={user.id} className="UserCard"  >
-          <h3>{user.attributes.first_name} {user.attributes.last_name}</h3>
+          <h4>{user.attributes.first_name} {user.attributes.last_name}</h4>
           <img className="UserImage" src={user.attributes.picture} alt={user.attributes.first_name} />
-          <p>Birthdate: {user.attributes.birthdate}</p>
-          <p>Points Earned: {user.attributes.points_earned}</p>
+          <p></p>
+          <h6>Birthdate: {user.attributes.birthdate}</h6>
+          <h6>Points Earned: {user.attributes.points_earned}</h6>
         </div>
     )
   }

@@ -64,7 +64,6 @@ class App extends React.Component {
             return <EditMilestoneFormWrapper milestone={milestone} {...props}/>}}/>
           <Route exact path='/milestones/:id/' render={props => {
             const milestone = milestones.find(milestone => milestone.id === props.match.params.id)
-
             // The library passes in a prop called match into every route that is rendered.
             // Inside this match object is another object called params . This holds all matching params where the key is the name we
             // specified when creating the route and the value is the actual value in the URL.
@@ -77,15 +76,7 @@ class App extends React.Component {
 
           <Route exact path='/kindWords/:id/edit' render={props=> {
             const kindWord = kindWords.find(kindWord => kindWord.id === props.match.params.id)
-            const who = users.find(user => user.id ===  kindWord.attributes.who);
-            debugger
-            // const whoId = who.id
-            return (
-              <>
-              <EditKindWordFormWrapper kindWord={kindWord} {...props}/>
-
-              </>
-            )
+            return <EditKindWordFormWrapper kindWord={kindWord} {...props}/>            
           }}/>
           <Route exact path='/kindWords/:id/' render={props => {
             const kindWord = kindWords.find(kindWord => kindWord.id === props.match.params.id)
